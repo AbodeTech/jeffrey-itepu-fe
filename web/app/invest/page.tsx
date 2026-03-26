@@ -1,10 +1,17 @@
-import { PagePlaceholder } from "@/components/PagePlaceholder";
+import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
+import { InvestHeroSection } from "@/features/invest/components/InvestHeroSection";
+import { InvestOwnershipAfricaSection } from "@/features/invest/components/InvestOwnershipAfricaSection";
 
 export default function InvestPage() {
   return (
-    <PagePlaceholder
-      title="Invest"
-      description="Invest page scaffolded. We will implement this page to match the portfolio design in the next pass."
-    />
+    <div className="min-w-0 overflow-x-hidden bg-[#F6F7FB]">
+      <Navbar />
+      <main>
+        <InvestHeroSection />
+        <InvestOwnershipAfricaSection />
+      </main>
+      <Footer />
+    </div>
   );
 }
