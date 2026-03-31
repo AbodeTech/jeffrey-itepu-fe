@@ -16,10 +16,10 @@ export function InvestHeroSection() {
         }}
       />
 
-      <div className="relative mx-auto max-w-[1320px] px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-10 lg:pb-24">
+      <div className="relative mx-auto max-w-[1320px] px-4 pb-12 pt-24 sm:px-6 sm:pb-20 sm:pt-32 lg:px-10 lg:pb-24">
         <div className="grid min-w-0 items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,600px)] lg:gap-10">
-          <div className="min-w-0">
-            <div className="inline-flex items-center gap-2">
+          <div className="min-w-0 text-center lg:text-left!">
+            <div className="inline-flex items-center justify-center gap-2 lg:justify-start">
               <Image
                 src="/assets/golden-star.svg"
                 alt=""
@@ -37,8 +37,8 @@ export function InvestHeroSection() {
             </div>
 
             <h1
-              className="mt-5 text-left! font-bold leading-[112%] tracking-[-0.03em] text-[#233A4A] text-[44px] sm:text-[56px] md:text-[68px] lg:text-[100px]"
-              style={{ fontFamily: "var(--font-agrandir)", textAlign: "left" }}
+              className="mt-5 font-bold leading-[112%] tracking-[-0.03em] text-[#233A4A] text-[36px] sm:text-[48px] md:text-[68px] lg:text-[100px] text-center lg:text-left!"
+              style={{ fontFamily: "var(--font-agrandir)" }}
             >
               <span className="block">Invest with</span>
               <span className="block" style={{ color: "#0093FF" }}>
@@ -47,17 +47,17 @@ export function InvestHeroSection() {
             </h1>
 
             <p
-              className="mt-6 max-w-[520px] text-left text-[14px] leading-[170%] text-[#505153] sm:text-[15px] md:text-[16px] lg:text-[18px]"
+              className="mt-5 max-w-[520px] mx-auto lg:mx-0 text-center lg:text-left! text-[13px] leading-[170%] text-[#505153] sm:text-[15px] md:text-[16px] lg:text-[18px]"
               style={{ fontFamily: "var(--font-delight)" }}
             >
               Through Abode and affiliated ventures, I provide structured real estate opportunities
               designed to create long-term value and responsible growth.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <Link
                 href="#locations"
-                  className="inline-flex h-[48px] w-full max-w-[232px] items-center justify-center gap-2 rounded-[16px] bg-[#0093FF] px-6 py-3 text-[12px] font-medium text-white transition hover:bg-[#0586E3] sm:w-[232px]"
+                  className="inline-flex h-[48px] w-full items-center justify-center gap-2 rounded-[16px] bg-[#0093FF] px-6 py-3 text-[12px] font-medium text-white transition hover:bg-[#0586E3] sm:w-auto sm:max-w-[232px]"
                 style={{ fontFamily: "var(--font-delight)" }}
                   aria-label="See available locations"
               >
@@ -90,7 +90,7 @@ export function InvestHeroSection() {
 
               <Link
                 href="#inspection"
-                  className="inline-flex h-[48px] w-full max-w-[232px] items-center justify-center rounded-[16px] border border-[#8EC8FF] bg-white px-6 py-3 text-[12px] font-medium text-[#233A4A] transition hover:bg-[#F3F9FF] sm:w-[232px]"
+                  className="inline-flex h-[48px] w-full items-center justify-center rounded-[16px] border border-[#8EC8FF] bg-white px-6 py-3 text-[12px] font-medium text-[#233A4A] transition hover:bg-[#F3F9FF] sm:w-auto sm:max-w-[232px]"
                 style={{ fontFamily: "var(--font-delight)" }}
                   aria-label="Schedule inspection"
               >
