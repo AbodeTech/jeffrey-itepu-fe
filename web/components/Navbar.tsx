@@ -13,7 +13,7 @@ const links = [
   { label: "Learn", href: "/learn" },
   { label: "About", href: "/about" },
   { label: "Book Jeff", href: "/book-jeff" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {

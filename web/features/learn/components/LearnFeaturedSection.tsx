@@ -3,46 +3,37 @@ import { SectionWrapper } from "@/components/SectionWrapper";
 
 export function LearnFeaturedSection() {
   return (
-    <SectionWrapper id="featured" className="bg-[#FFF] py-16!">
-      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-        {/* Full width image section */}
-        <div className="relative w-full h-[502px] overflow-hidden rounded-[12px]">
+    <SectionWrapper
+      id="featured"
+      className="bg-[#F5F5F5] py-10 md:py-14 lg:py-16"
+    >
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-5 lg:px-3">
+        <h3
+          className="w-full text-left! text-[20px] font-bold leading-[115%] tracking-[-0.02em] text-[#233A4A]"
+          style={{ fontFamily: "var(--font-agrandir)" }}
+        >
+          <span className="inline-flex items-center gap-1">
+            Real Estate University
+            <span
+              className="inline-flex items-center text-[12px] font-normal text-[#9EA6AE]"
+              style={{ fontFamily: "var(--font-delight)" }}
+            >
+              [1]
+            </span>
+          </span>
+        </h3>
+
+        <div className="relative mt-4 overflow-hidden rounded-[10px] sm:mt-5 sm:rounded-[12px]">
           <Image
-            src="/assets/reu.png"
-            alt="Featured learning content"
-            fill
-            className="object-cover rounded-[12px]"
-            sizes="100vw"
+            src="/assets/reu-wide-hd.png"
+            alt="Real Estate University featured episode"
+            width={1440}
+            height={702}
+            sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) calc(100vw - 2.5rem), 1434px"
+            className="block h-auto w-full"
             priority
-            quality={95}
+            quality={100}
           />
-          
-          {/* Bottom gradient overlay */}
-          <div 
-            className="absolute bottom-0 left-0 right-0 h-full rounded-[12px]"
-            style={{
-              background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 52.26%, rgba(0, 0, 0, 0.3) 77.51%, #000000 100%)"
-            }}
-          />
-          
-          {/* Text and play button at bottom */}
-          <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-5 lg:p-6 rounded-[12px]">
-            <div className="flex items-center gap-2 sm:gap-3">
-              <Image
-                src="/assets/play-circle.svg"
-                alt="Play"
-                width={20}
-                height={20}
-                className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8"
-              />
-              <p
-                className="text-[12px] font-medium text-white sm:text-[14px] md:text-[15px] lg:text-[16px]"
-                style={{ fontFamily: "var(--font-delight)" }}
-              >
-                Introduction to Real Estate Systems
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </SectionWrapper>

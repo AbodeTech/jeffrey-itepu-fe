@@ -1,10 +1,7 @@
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { AboutHeroSection } from "@/features/about/components/AboutHeroSection";
-import { AboutMainSection } from "@/features/about/components/AboutMainSection";
-import { AboutFocusSection } from "@/features/about/components/AboutFocusSection";
-import { AboutDualImageSection } from "@/features/about/components/AboutDualImageSection";
+import { AboutDualImageSection, AboutFocusSection, AboutHeroSection, AboutMainSection } from "@/features/about";
 
 export default function AboutPage() {
   return (

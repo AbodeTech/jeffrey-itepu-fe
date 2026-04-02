@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "react-phone-number-input/style.css";
 
 :root {
   --background: #f6f7fb;
@@ -37,8 +38,14 @@ h3 {
   text-align: center;
 }
 
-* {
+html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* About hero tagline — horizontal marquee (clip overflow in the parent) */

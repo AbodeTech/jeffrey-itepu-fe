@@ -4,53 +4,13 @@ import Image from "next/image";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
+import { useBookJeffContactForm } from "../hooks/use-book-jeff-contact-form";
 
 export function BookJeffContactSection() {
-  const [formData, setFormData] = useState({
-    fullName: "Jeffery Itepu",
-    organization: "New Co",
-    email: "jeff@ess.com",
-    phone: "+2348188337211",
-    eventType: "Conference",
-    eventDate: "2026-10-22",
-    eventLocation: "Lagos, Nigeria",
-    format: "In-Person",
-    additionalNotes: ""
-  });
-
-  const [selectedCountry, setSelectedCountry] = useState({
-    code: 'NG',
-    name: 'Nigeria',
-    dialCode: '+234',
-    flag: '🇳🇬'
-  });
+  const { formData, setFormData, isValid: isFormValid } = useBookJeffContactForm();
 
   const [showToast, setShowToast] = useState(false);
 
-  const countries = [
-    { code: 'NG', name: 'Nigeria', dialCode: '+234', flag: '🇳🇬' },
-    { code: 'US', name: 'United States', dialCode: '+1', flag: '🇺🇸' },
-    { code: 'GB', name: 'United Kingdom', dialCode: '+44', flag: '🇬🇧' },
-    { code: 'CA', name: 'Canada', dialCode: '+1', flag: '🇨🇦' },
-    { code: 'AU', name: 'Australia', dialCode: '+61', flag: '🇦🇺' },
-    { code: 'DE', name: 'Germany', dialCode: '+49', flag: '🇩🇪' },
-    { code: 'FR', name: 'France', dialCode: '+33', flag: '🇫🇷' },
-    { code: 'IT', name: 'Italy', dialCode: '+39', flag: '🇮🇹' },
-    { code: 'ES', name: 'Spain', dialCode: '+34', flag: '🇪🇸' },
-    { code: 'JP', name: 'Japan', dialCode: '+81', flag: '🇯🇵' },
-    { code: 'CN', name: 'China', dialCode: '+86', flag: '🇨🇳' },
-    { code: 'IN', name: 'India', dialCode: '+91', flag: '🇮🇳' },
-    { code: 'BR', name: 'Brazil', dialCode: '+55', flag: '🇧🇷' },
-    { code: 'ZA', name: 'South Africa', dialCode: '+27', flag: '🇿🇦' },
-    { code: 'KE', name: 'Kenya', dialCode: '+254', flag: '🇰🇪' }
-  ];
-
-  const handleCountryChange = (country: typeof countries[0]) => {
-    setSelectedCountry(country);
-    // Update phone number with new country code
-    const currentPhoneNumber = formData.phone.replace(selectedCountry.dialCode, '').trim();
-    setFormData({ ...formData, phone: `${country.dialCode}${currentPhoneNumber}` });
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,8 +19,6 @@ export function BookJeffContactSection() {
       // Don't auto-hide toast - let user close it manually
     }
   };
-
-  const isFormValid = formData.fullName && formData.organization && formData.email && formData.phone && formData.eventType && formData.eventDate && formData.eventLocation && formData.format;
 
   return (
     <>
@@ -166,59 +124,15 @@ export function BookJeffContactSection() {
                       >
                         Phone Number
                       </label>
-                      <div className="relative max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full">
-                        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 flex items-center z-10">
-                          <button
-                            type="button"
-                            onClick={() => {
-                              // Toggle dropdown visibility
-                              const dropdown = document.getElementById('country-dropdown');
-                              if (dropdown) {
-                                dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
-                              }
-                            }}
-                            className="flex items-center text-sm font-medium text-gray-700 cursor-pointer hover:text-gray-900"
-                            style={{ fontFamily: "var(--font-delight)" }}
-                          >
-                            <span className="mr-2">{selectedCountry.flag}</span>
-                            <span className="mr-1">{selectedCountry.dialCode}</span>
-                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" className="ml-1">
-                              <path d="M1 1.5L6 6.5L11 1.5" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                          </button>
-                          <div
-                            id="country-dropdown"
-                            className="absolute top-full left-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-50 hidden overflow-y-auto"
-                            style={{ minWidth: '120px', maxHeight: '200px' }}
-                          >
-                            {countries.map(country => (
-                              <button
-                                key={country.code}
-                                type="button"
-                                onClick={() => {
-                                  handleCountryChange(country);
-                                  const dropdown = document.getElementById('country-dropdown');
-                                  if (dropdown) dropdown.style.display = 'none';
-                                }}
-                                className="w-full text-left px-3 py-2 hover:bg-gray-100 flex items-center text-sm"
-                                style={{ fontFamily: "var(--font-delight)" }}
-                              >
-                                <span className="mr-2">{country.flag}</span>
-                                <span className="font-medium">{country.dialCode}</span>
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                        <input
-                          type="tel"
-                          value={formData.phone ? formData.phone.replace(selectedCountry.dialCode, '').trim() : ''}
-                          onChange={(e) => {
-                            const phoneNumber = e.target.value;
-                            setFormData({ ...formData, phone: `${selectedCountry.dialCode}${phoneNumber}` });
-                          }}
-                          className="pl-24 pr-3 py-2 border border-gray-300 focus:border-transparent outline-none transition text-sm max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full focus:bg-[#D3EAF5]"
-                          style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px' }}
+                      <div className="max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full">
+                        <PhoneInput
+                          international
+                          defaultCountry="NG"
+                          countryCallingCodeEditable={false}
+                          value={formData.phone}
+                          onChange={(value) => setFormData({ ...formData, phone: value ?? "" })}
                           placeholder="818 833 7211"
+                          className="book-jeff-phone-input"
                         />
                       </div>
                     </div>
@@ -397,7 +311,7 @@ export function BookJeffContactSection() {
             style={{ backgroundColor: '#F6FFF9', width: '415px' }}
           >
             <div className="flex items-start space-x-3">
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <Image
                   src="/assets/mark.svg"
                   alt="Success"
@@ -416,7 +330,7 @@ export function BookJeffContactSection() {
             </div>
             <button
               onClick={() => setShowToast(false)}
-              className="flex-shrink-0 p-1 rounded-md hover:bg-gray-100 transition-colors"
+              className="shrink-0 p-1 rounded-md hover:bg-gray-100 transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M12 4L4 12M4 4L12 12" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -425,6 +339,44 @@ export function BookJeffContactSection() {
           </div>
         </div>
       )}
+      <style jsx global>{`
+        .book-jeff-phone-input {
+          display: flex;
+          align-items: center;
+          height: 48px;
+          width: 100%;
+          border: 1px solid #d1d5db;
+          border-radius: 12px;
+          background: transparent;
+          overflow: hidden;
+        }
+        .book-jeff-phone-input:focus-within {
+          border-color: transparent;
+          background: #d3eaf5;
+        }
+        .book-jeff-phone-input .PhoneInputCountry {
+          margin: 0;
+          height: 100%;
+          padding: 0 10px;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          border-right: 1px solid #d1d5db;
+        }
+        .book-jeff-phone-input .PhoneInputCountrySelect {
+          cursor: pointer;
+        }
+        .book-jeff-phone-input .PhoneInputInput {
+          height: 100%;
+          width: 100%;
+          border: 0;
+          outline: 0;
+          background: transparent;
+          padding: 0 12px;
+          font-size: 14px;
+          font-family: var(--font-delight);
+        }
+      `}</style>
     </>
   );
 }

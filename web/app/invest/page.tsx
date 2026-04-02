@@ -1,9 +1,11 @@
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { InvestHeroSection } from "@/features/invest/components/InvestHeroSection";
-import { InvestOwnershipAfricaSection } from "@/features/invest/components/InvestOwnershipAfricaSection";
-import { InvestAvailableLocationsSection } from "@/features/invest/components/InvestAvailableLocationsSection";
-import { InvestScheduleInspectionSection } from "@/features/invest/components/InvestScheduleInspectionSection";
+import {
+  InvestAvailableLocationsSection,
+  InvestHeroSection,
+  InvestOwnershipAfricaSection,
+  InvestScheduleInspectionSection,
+} from "@/features/invest";
 import { ContactSection } from "@/components/ContactSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
 

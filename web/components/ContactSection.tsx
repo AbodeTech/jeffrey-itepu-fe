@@ -39,7 +39,7 @@ export function ContactSection({
   };
 
   return (
-    <SectionWrapper id={id} className={cn("bg-[#F5F5F5] py-12 sm:py-16 md:py-16 lg:py-20", className)}>
+    <SectionWrapper id={id} className={cn("bg-[#FFF] py-12 sm:py-16 md:py-16 lg:py-20", className)}>
       <div className="mx-auto max-w-[1440px] min-w-0 px-4 sm:px-6 md:px-7 lg:px-8">
         <div className="relative overflow-hidden rounded-[16px] bg-[linear-gradient(180deg,#009DFF_0%,#C5E7FF_100%)] px-5 text-white sm:rounded-[20px] sm:px-8 md:px-12 md:py-10 lg:px-16 lg:pb-0 lg:pt-12 xl:px-20">
           <div className="grid min-w-0 items-start gap-8 md:gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(260px,340px)] lg:gap-6">

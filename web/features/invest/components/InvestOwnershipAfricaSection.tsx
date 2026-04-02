@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { SectionWrapper } from "@/components/SectionWrapper";
-import { portfolioContent } from "@/features/portfolio/data/portfolio-content";
 
 const investPillars = [
   {

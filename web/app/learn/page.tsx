@@ -3,10 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { 
   LearnHeroSection,
   LearnFeaturedSection, 
-  LearnResourcesSection, 
-  LearnFormatsSection, 
-  LearnTestimonialsSection, 
-  LearnCTASection 
+  LearnFeaturedArticlesSection
 } from "@/features/learn";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { ContactSection } from "@/components/ContactSection";
@@ -18,10 +15,7 @@ export default function LearnPage() {
       <main>
         <LearnHeroSection />
         <LearnFeaturedSection />
-        <LearnResourcesSection />
-        <LearnFormatsSection />
-        <LearnTestimonialsSection />
-        <LearnCTASection />
+        <LearnFeaturedArticlesSection />
         <NewsletterSection />
         <ContactSection />
       </main>

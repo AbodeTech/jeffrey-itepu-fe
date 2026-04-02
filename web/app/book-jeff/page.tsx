@@ -1,9 +1,11 @@
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { BookJeffHeroSection } from "@/features/book-jeff/components/BookJeffHeroSection";
-import { BookJeffSpeaksOnSection } from "@/features/book-jeff/components/BookJeffSpeaksOnSection";
-import { BookJeffPastEngagementsSection } from "@/features/book-jeff/components/BookJeffPastEngagementsSection";
-import { BookJeffContactSection } from "@/features/book-jeff/components/BookJeffContactSection";
+import {
+  BookJeffContactSection,
+  BookJeffHeroSection,
+  BookJeffPastEngagementsSection,
+  BookJeffSpeaksOnSection,
+} from "@/features/book-jeff";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { ContactSection } from "@/components/ContactSection";
 
