@@ -57,9 +57,9 @@ export function Navbar() {
           ))}
         </ul>
         <div className="hidden lg:block">
-          <Link href="/ownership-network">
+          <Link href="/register">
             <Button className="rounded-[12px] bg-[#05AAFF] px-5 py-2.5 text-[12px] text-white hover:bg-[#0499E5]">
-              Join the Ownership Network
+              Register
             </Button>
           </Link>
         </div>
@@ -117,9 +117,9 @@ export function Navbar() {
               </ul>
 
               <div className="mt-auto">
-                <Link href="/ownership-network" onClick={() => setOpen(false)}>
+                <Link href="/register" onClick={() => setOpen(false)}>
                   <Button className="w-full rounded-[14px] bg-[#05AAFF] py-3 text-[14px] text-white hover:bg-[#0499E5]">
-                    Join the Ownership Network
+                    Register
                   </Button>
                 </Link>
                 <p className="mt-4 text-center text-[13px] text-[#B1B1B1]">
