@@ -77,7 +77,13 @@ export function HeroCarousel() {
           >
             {slides[index].badge}
           </span>
-          <h1 className="mx-auto mt-4 max-w-[760px] text-4xl leading-[1.04] font-semibold tracking-[-0.02em] text-white md:text-6xl">
+          <p
+            className="mx-auto mt-3 text-[12px] font-medium text-white/90 md:text-[14px]"
+            style={{ fontFamily: "var(--font-delight)" }}
+          >
+            2nd May 2026
+          </p>
+          <h1 className="mx-auto mt-3 max-w-[760px] text-4xl leading-[1.04] font-semibold tracking-[-0.02em] text-white md:text-6xl">
             {slides[index].title}
           </h1>
           <p className="mx-auto mt-3 max-w-[520px] text-sm leading-relaxed text-white/70 md:text-base">
@@ -85,7 +91,7 @@ export function HeroCarousel() {
           </p>
           <Link
             href="/register"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#05AAFF] px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-white hover:text-[#05AAFF]"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-white hover:text-[#05AAFF]"
           >
             Register Now — It&apos;s Free
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>

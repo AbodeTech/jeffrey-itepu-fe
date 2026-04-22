@@ -35,19 +35,19 @@ export default function RegisterPage() {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <Image src="/assets/icon.svg" alt="Logo" width={14} height={20} className="h-5 w-auto" />
-            <span className="font-[family-name:var(--font-agrandir)] text-base font-bold tracking-tight text-[#233a4a]">
+            <span className="font-(family-name:--font-agrandir) text-base font-bold tracking-tight text-[#233a4a]">
               JEFFREY ITEPU
             </span>
-            <span className="rounded-full bg-[#05AAFF]/10 px-2.5 py-1 font-sans text-[10px] font-bold uppercase tracking-widest text-[#05AAFF]">
+            <span className="rounded-full bg-primary/10 px-2.5 py-1 font-sans text-[10px] font-bold uppercase tracking-widest text-primary">
               Register
             </span>
           </div>
 
           {/* Heading */}
-          <h1 className="mt-10 font-[family-name:var(--font-agrandir)] text-4xl font-bold leading-tight tracking-tight text-[#233a4a] xl:text-5xl">
+          <h1 className="mt-10 font-(family-name:--font-agrandir) text-4xl font-bold leading-tight tracking-tight text-[#233a4a] xl:text-5xl">
             One application.<br />
             One community.<br />
-            <span className="text-[#05AAFF]">Zero cost.</span>
+            <span className="text-primary">Zero cost.</span>
           </h1>
 
           {/* Subtext */}
@@ -73,7 +73,7 @@ export default function RegisterPage() {
         </div>
 
         {/* Testimonial */}
-        <blockquote className="mt-12 border-l-2 border-[#05AAFF]/40 pl-5">
+        <blockquote className="mt-12 border-l-2 border-primary/40 pl-5">
           <p className="font-sans text-sm italic leading-relaxed text-[#4E545B]">
             &quot;Working with Jeffrey changed how I think about money and property entirely.&quot;
           </p>
@@ -89,11 +89,11 @@ export default function RegisterPage() {
         <div className="mb-8 flex items-center justify-between lg:hidden">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/assets/icon.svg" alt="Logo" width={14} height={20} className="h-5 w-auto" />
-            <span className="font-[family-name:var(--font-agrandir)] text-base font-bold tracking-tight text-[#233a4a]">
+            <span className="font-(family-name:--font-agrandir) text-base font-bold tracking-tight text-[#233a4a]">
               JEFFREY ITEPU
             </span>
           </Link>
-          <span className="rounded-full bg-[#05AAFF]/10 px-2.5 py-1 font-sans text-[10px] font-bold uppercase tracking-widest text-[#05AAFF]">
+          <span className="rounded-full bg-primary/10 px-2.5 py-1 font-sans text-[10px] font-bold uppercase tracking-widest text-[#05AAFF]">
             Register
           </span>
         </div>
