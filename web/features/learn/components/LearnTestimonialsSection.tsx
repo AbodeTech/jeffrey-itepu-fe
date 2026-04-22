@@ -44,7 +44,7 @@ export function LearnTestimonialsSection() {
             className="mt-4 max-w-[600px] mx-auto text-[15px] leading-[170%] text-[#6C7881] sm:text-[16px] md:text-[17px] lg:text-[18px]"
             style={{ fontFamily: "var(--font-delight)" }}
           >
-            Hear from professionals who have transformed their real estate careers with Jeffrey's guidance.
+            Hear from professionals who have transformed their real estate careers with Jeffrey&apos;s guidance.
           </p>
         </div>
 
@@ -74,7 +74,7 @@ export function LearnTestimonialsSection() {
                 className="text-sm text-[#233A4A] leading-[170%] mb-6"
                 style={{ fontFamily: "var(--font-delight)" }}
               >
-                "{testimonial.content}"
+                {testimonial.content}
               </blockquote>
 
               {/* Author */}

@@ -64,7 +64,7 @@ export function BookJeffPastEngagementsSection() {
                     className="text-[12px] font-medium text-white sm:text-[14px] md:text-[15px] lg:text-[16px]"
                     style={{ fontFamily: "var(--font-delight)" }}
                   >
-                    Wealth Festival'25 Talk
+                    Wealth Festival&apos;25 Talk
                   </p>
                 </div>
               </div>

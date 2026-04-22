@@ -58,7 +58,7 @@ export function NewsletterSection() {
               value creation in Africa.
             </p>
 
-            <div className="grid gap-6 sm:grid-cols-2">
+            {/* <div className="grid gap-6 sm:grid-cols-2">
               {[1, 2].map((card) => (
                 <article key={card}>
                   <div className="overflow-hidden rounded-[16px]">
@@ -84,7 +84,7 @@ export function NewsletterSection() {
                   </p>
                 </article>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

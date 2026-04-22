@@ -1,11 +1,21 @@
 // Safe gtag wrapper — works even if GA hasn't loaded yet
 
+declare global {
+  interface Window {
+    gtag?: (
+      command: 'event' | 'config' | 'js',
+      eventName: string,
+      params?: Record<string, string | number>
+    ) => void
+  }
+}
+
 export const trackEvent = (
   eventName: string,
   params?: Record<string, string | number>
 ) => {
-  if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
-    (window as any).gtag('event', eventName, params)
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', eventName, params)
   }
 }
 

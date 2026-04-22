@@ -2,6 +2,13 @@
 
 import { useState, useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
+import Link from "next/link"
+
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void
+  }
+}
 import { AnimatePresence, motion } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -292,8 +299,8 @@ export function RegistrationForm() {
 
       localStorage.removeItem('abode_ref')
 
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'Lead')
+      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead')
       }
 
       router.push("/register/success")
@@ -747,13 +754,13 @@ export function RegistrationForm() {
               Back
             </FormButton>
           ) : (
-            <a
+            <Link
               href="/"
               className="inline-flex items-center gap-2 font-sans text-sm text-slate-600 transition-colors hover:text-[#233a4a]"
             >
               <ArrowLeft className="size-4" />
               Home
-            </a>
+            </Link>
           )}
 
           {step < STEPS.length - 1 ? (

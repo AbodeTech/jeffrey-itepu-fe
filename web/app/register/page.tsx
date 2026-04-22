@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { RegistrationForm } from "@/components/registration-form"
 
 export const metadata: Metadata = {
@@ -86,12 +87,12 @@ export default function RegisterPage() {
       <main className="flex flex-1 flex-col overflow-hidden px-6 py-10 lg:px-12 lg:py-12">
         {/* Mobile header */}
         <div className="mb-8 flex items-center justify-between lg:hidden">
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Image src="/assets/icon.svg" alt="Logo" width={14} height={20} className="h-5 w-auto" />
             <span className="font-[family-name:var(--font-agrandir)] text-base font-bold tracking-tight text-[#233a4a]">
               JEFFREY ITEPU
             </span>
-          </a>
+          </Link>
           <span className="rounded-full bg-[#05AAFF]/10 px-2.5 py-1 font-sans text-[10px] font-bold uppercase tracking-widest text-[#05AAFF]">
             Register
           </span>
