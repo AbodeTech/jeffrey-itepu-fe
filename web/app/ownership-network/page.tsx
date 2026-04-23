@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -13,6 +14,27 @@ import {
   OwnershipNetworkWelcomesSection,
   OwnershipNetworkWhySection,
 } from "@/features/ownership-network";
+
+export const metadata: Metadata = {
+  title: "Ownership Network — Jeffrey Itepu",
+  description:
+    "Join the Abode Ownership Network. Connect with fellow investors, access exclusive deals, and build wealth through real estate ownership.",
+  alternates: {
+    canonical: "/ownership-network",
+  },
+  openGraph: {
+    title: "Ownership Network — Jeffrey Itepu",
+    description:
+      "Join the Abode Ownership Network. Connect with fellow investors, access exclusive deals, and build wealth through real estate ownership.",
+    url: "/ownership-network",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ownership Network — Jeffrey Itepu",
+    description:
+      "Join the Abode Ownership Network. Connect with fellow investors, access exclusive deals, and build wealth through real estate ownership.",
+  },
+};
 
 export default function OwnershipNetworkPage() {
   return (

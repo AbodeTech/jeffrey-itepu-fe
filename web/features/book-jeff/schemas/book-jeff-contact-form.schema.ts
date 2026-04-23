@@ -11,13 +11,13 @@ export type BookJeffContactFormValues = {
 };
 
 export const initialBookJeffContactFormValues: BookJeffContactFormValues = {
-  fullName: "Jeffery Itepu",
-  organization: "New Co",
-  email: "jeff@ess.com",
-  phone: "+2348188337211",
+  fullName: "",
+  organization: "",
+  email: "",
+  phone: "",
   eventType: "Conference",
-  eventDate: "2026-10-22",
-  eventLocation: "Lagos, Nigeria",
+  eventDate: "",
+  eventLocation: "",
   format: "In-Person",
   additionalNotes: "",
 };
@@ -25,7 +25,6 @@ export const initialBookJeffContactFormValues: BookJeffContactFormValues = {
 export function isBookJeffContactFormValid(values: BookJeffContactFormValues): boolean {
   return Boolean(
     values.fullName.trim() &&
-      values.organization.trim() &&
       values.email.trim() &&
       values.phone.trim() &&
       values.eventType.trim() &&

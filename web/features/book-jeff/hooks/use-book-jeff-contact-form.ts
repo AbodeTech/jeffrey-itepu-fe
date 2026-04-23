@@ -14,9 +14,14 @@ export function useBookJeffContactForm(
   const [formData, setFormData] = useState<BookJeffContactFormValues>(initialValues);
   const isValid = useMemo(() => isBookJeffContactFormValid(formData), [formData]);
 
+  const resetForm = () => {
+    setFormData(initialBookJeffContactFormValues);
+  };
+
   return {
     formData,
     setFormData,
     isValid,
+    resetForm,
   };
 }

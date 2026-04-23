@@ -7,16 +7,49 @@ import PhoneInput from "react-phone-number-input";
 import { useBookJeffContactForm } from "../hooks/use-book-jeff-contact-form";
 
 export function BookJeffContactSection() {
-  const { formData, setFormData, isValid: isFormValid } = useBookJeffContactForm();
+  const { formData, setFormData, isValid: isFormValid, resetForm } = useBookJeffContactForm();
 
   const [showToast, setShowToast] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (isFormValid) {
+    if (!isFormValid || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const res = await fetch("/api/book-jeff", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          organization: formData.organization,
+          email: formData.email,
+          phone: formData.phone,
+          eventType: formData.eventType,
+          eventDate: formData.eventDate,
+          eventLocation: formData.eventLocation,
+          format: formData.format,
+          additionalNotes: formData.additionalNotes,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        setSubmitError(result.error || "Something went wrong. Please try again.");
+        return;
+      }
+
       setShowToast(true);
-      // Don't auto-hide toast - let user close it manually
+      resetForm();
+    } catch {
+      setSubmitError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -74,6 +107,7 @@ export function BookJeffContactSection() {
                         type="text"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                        placeholder="e.g. John Smith"
                         className="px-3 py-2 border border-gray-300 focus:border-transparent outline-none transition text-sm max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full focus:bg-[#D3EAF5]"
                         style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px' }}
                       />
@@ -91,6 +125,7 @@ export function BookJeffContactSection() {
                         type="text"
                         value={formData.organization}
                         onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
+                        placeholder="e.g. Acme Corporation"
                         className="px-3 py-2 border border-gray-300 focus:border-transparent outline-none transition text-sm max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full focus:bg-[#D3EAF5]"
                         style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px' }}
                       />
@@ -111,6 +146,7 @@ export function BookJeffContactSection() {
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="e.g. john.smith@company.com"
                         className="px-3 py-2 border border-gray-300 focus:border-transparent outline-none transition text-sm max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full focus:bg-[#D3EAF5]"
                         style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px' }}
                       />
@@ -131,7 +167,7 @@ export function BookJeffContactSection() {
                           countryCallingCodeEditable={false}
                           value={formData.phone}
                           onChange={(value) => setFormData({ ...formData, phone: value ?? "" })}
-                          placeholder="818 833 7211"
+                          placeholder="e.g. 818 833 7211"
                           className="book-jeff-phone-input"
                         />
                       </div>
@@ -190,7 +226,7 @@ export function BookJeffContactSection() {
                             setTimeout(() => input.showPicker?.(), 0);
                           }}
                           onContextMenu={(e) => e.preventDefault()}
-                          placeholder="Select date"
+                          placeholder="e.g. October 15, 2026"
                           className="px-3 py-2 pr-10 border border-gray-300 focus:border-transparent outline-none transition text-sm w-full focus:bg-[#D3EAF5] [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-inner-spin-button]:hidden [&::-webkit-outer-spin-button]:hidden"
                           style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px', colorScheme: 'light', WebkitAppearance: 'none', MozAppearance: 'textfield' }}
                         />
@@ -230,6 +266,7 @@ export function BookJeffContactSection() {
                         type="text"
                         value={formData.eventLocation}
                         onChange={(e) => setFormData({ ...formData, eventLocation: e.target.value })}
+                        placeholder="e.g. Lagos, Nigeria"
                         className="px-3 py-2 border border-gray-300 focus:border-transparent outline-none transition text-sm max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full focus:bg-[#D3EAF5]"
                         style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px' }}
                       />
@@ -278,7 +315,7 @@ export function BookJeffContactSection() {
                       rows={3}
                       value={formData.additionalNotes}
                       onChange={(e) => setFormData({ ...formData, additionalNotes: e.target.value })}
-                      placeholder="Share event details, audience profile, and topic expectations"
+                      placeholder="e.g. Annual Real Estate Summit with 500+ attendees. Looking for a keynote on 'The Future of Property Investment in Africa'. Audience: Real estate professionals, investors, and developers."
                       className="px-3 py-2 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition resize-none text-sm w-full max-w-[507px] max-sm:max-w-none focus:bg-[#D3EAF5]"
                       style={{ fontFamily: "var(--font-delight)", borderRadius: '12px', borderWidth: '1px' }}
                     />
@@ -287,15 +324,20 @@ export function BookJeffContactSection() {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    disabled={!isFormValid}
-                    className={`w-full font-semibold py-3 px-6 rounded-[20px] transition duration-200 ${isFormValid
+                    disabled={!isFormValid || isSubmitting}
+                    className={`w-full font-semibold py-3 px-6 rounded-[20px] transition duration-200 ${isFormValid && !isSubmitting
                       ? 'bg-[#05AAFF] hover:bg-blue-700 text-white cursor-pointer'
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                       }`}
                     style={{ fontFamily: "var(--font-delight)" }}
                   >
-                    Submit Booking Request
+                    {isSubmitting ? 'Submitting...' : 'Submit Booking Request'}
                   </button>
+                  {submitError && (
+                    <p className="mt-2 text-sm text-red-600" style={{ fontFamily: "var(--font-delight)" }}>
+                      {submitError}
+                    </p>
+                  )}
                 </form>
               </div>
             </div>

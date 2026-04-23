@@ -1,7 +1,29 @@
+import type { Metadata } from "next";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ContactPageDetailsSection } from "@/features/contact";
+
+export const metadata: Metadata = {
+  title: "Contact — Jeffrey Itepu",
+  description:
+    "Get in touch with Jeffrey Itepu for partnerships, media inquiries, speaking engagements, or general questions.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact — Jeffrey Itepu",
+    description:
+      "Get in touch with Jeffrey Itepu for partnerships, media inquiries, speaking engagements, or general questions.",
+    url: "/contact",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact — Jeffrey Itepu",
+    description:
+      "Get in touch with Jeffrey Itepu for partnerships, media inquiries, speaking engagements, or general questions.",
+  },
+};
 
 export default function ContactPage() {
   return (
