@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { MASTER_CLASS_EVENT_DATE } from "@/lib/event";
 
 type Slide = {
   image: string;
@@ -81,7 +82,7 @@ export function HeroCarousel() {
             className="mx-auto mt-3 text-[12px] font-medium text-white/90 md:text-[14px]"
             style={{ fontFamily: "var(--font-delight)" }}
           >
-            2nd May 2026
+            {MASTER_CLASS_EVENT_DATE}
           </p>
           <h1 className="mx-auto mt-3 max-w-[760px] text-4xl leading-[1.04] font-semibold tracking-[-0.02em] text-white md:text-6xl">
             {slides[index].title}

@@ -137,10 +137,23 @@ export function RegistrationForm() {
   }, [])
 
   const [step, setStep] = useState(0)
+  const isFirstStep = step === 0
   const [formData, setFormData] = useState<FormData>({ ...initialFormData, referral_name: searchParams.get('ref') || '' })
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({})
   const [submitting, setSubmitting] = useState(false)
   const [serverError, setServerError] = useState("")
+
+  // Step 1 fits in one viewport — prevent document scroll until user advances
+  useEffect(() => {
+    const root = document.getElementById("register-root")
+    const onFirstStep = step === 0
+    root?.classList.toggle("register-step-one", onFirstStep)
+    document.body.style.overflow = onFirstStep ? "hidden" : ""
+    return () => {
+      root?.classList.remove("register-step-one")
+      document.body.style.overflow = ""
+    }
+  }, [step])
 
   const [inviteQuery, setInviteQuery] = useState('')
   const [inviteResults, setInviteResults] = useState<InviteSearchResult[]>([])
@@ -312,15 +325,18 @@ export function RegistrationForm() {
   }
 
   const pillBase =
-    "rounded-full border px-4 py-2 font-sans text-sm font-medium transition-all"
+    "rounded-full border px-3 py-1.5 font-sans text-xs font-medium transition-all sm:px-4 sm:py-2 sm:text-sm"
   const pillActive = "bg-[#05AAFF] border-[#05AAFF] text-white"
   const pillInactive =
     "border-[#E0EAF1] bg-white text-[#4E545B] hover:border-[#05AAFF]/40 hover:text-[#233a4a]"
 
+  const needsScrollAssist = step > 0
+  const sectionGap = isFirstStep ? "mb-4" : "mb-6 sm:mb-8"
+
   return (
     <div className="mx-auto w-full max-w-lg">
       {/* Progress */}
-      <div className="mb-8">
+      <div className={sectionGap}>
         <div className="mb-3 flex items-center justify-between">
           <span className="font-sans text-sm text-slate-600">
             Step {step + 1} of {STEPS.length}
@@ -333,19 +349,21 @@ export function RegistrationForm() {
       </div>
 
       {/* Step heading */}
-      <div className="mb-8">
-        <h2 className="font-[family-name:var(--font-agrandir)] text-2xl font-bold text-[#233a4a]">
+      <div className={sectionGap}>
+        <h2 className="text-left font-[family-name:var(--font-agrandir)] text-xl font-bold text-[#233a4a] sm:text-2xl">
           {STEPS[step].title}
         </h2>
-        <p className="mt-1 font-sans text-sm text-slate-600">
-          {STEPS[step].description}
-        </p>
+        {!isFirstStep && (
+          <p className="mt-1 font-sans text-sm text-slate-600">
+            {STEPS[step].description}
+          </p>
+        )}
       </div>
 
       {/* Step 1: Personal Info */}
       {step === 0 && (
-        <div className="flex flex-col gap-5">
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="flex flex-col gap-2">
               <Label htmlFor="first_name" className="text-slate-700">First Name *</Label>
               <Input
@@ -423,7 +441,7 @@ export function RegistrationForm() {
 
       {/* Step 2: Background */}
       {step === 1 && (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-5 sm:gap-6">
           <div className="flex flex-col gap-2">
             <Label className="text-slate-700">Age Bracket *</Label>
             <Select value={formData.age_bracket} onValueChange={(value) => updateField("age_bracket", value)}>
@@ -441,7 +459,7 @@ export function RegistrationForm() {
 
           <div className="flex flex-col gap-3">
             <Label className="text-slate-700">What best describes your current status? *</Label>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 sm:gap-2.5">
               {EMPLOYMENT_STATUSES.map((status) => (
                 <button
                   key={status}
@@ -740,9 +758,20 @@ export function RegistrationForm() {
         </div>
       )}
 
-      {/* Navigation */}
-      <div className="mt-8 flex flex-col gap-3">
-        <div className="flex items-center justify-between">
+      {/* Steps 2+ need scroll room above the sticky bar on mobile */}
+      {needsScrollAssist && (
+        <div className="h-20 shrink-0 lg:hidden" aria-hidden="true" />
+      )}
+
+      {/* Sticky nav only on taller steps; step 1 fits without page scroll */}
+      <div
+        className={
+          needsScrollAssist
+            ? "sticky bottom-0 z-10 -mx-4 mt-2 border-t border-[#E0EAF1] bg-[#f6f7fb]/95 px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] backdrop-blur-sm sm:-mx-6 sm:mt-4 sm:px-6 lg:static lg:mx-0 lg:mt-8 lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none"
+            : "mt-6"
+        }
+      >
+        <div className="flex flex-wrap items-center justify-between gap-3">
           {step > 0 ? (
             <FormButton
               type="button"
@@ -767,7 +796,7 @@ export function RegistrationForm() {
             <FormButton
               type="button"
               onClick={handleNext}
-              className="gap-2 rounded-full bg-[#05AAFF] px-6 text-white hover:bg-[#0499E5]"
+              className="ml-auto gap-2 rounded-full bg-[#05AAFF] px-5 text-white hover:bg-[#0499E5] sm:px-6"
             >
               Continue
               <ArrowRight className="size-4" />
@@ -777,7 +806,7 @@ export function RegistrationForm() {
               type="button"
               onClick={handleSubmit}
               disabled={submitting}
-              className="gap-2 rounded-full bg-[#05AAFF] px-6 text-white hover:bg-[#0499E5]"
+              className="ml-auto gap-2 rounded-full bg-[#05AAFF] px-5 text-white hover:bg-[#0499E5] sm:px-6"
             >
               {submitting ? (
                 <>
@@ -785,7 +814,10 @@ export function RegistrationForm() {
                   Submitting...
                 </>
               ) : (
-                "Submit My Application →"
+                <>
+                  <span className="sm:hidden">Submit</span>
+                  <span className="hidden sm:inline">Submit My Application →</span>
+                </>
               )}
             </FormButton>
           )}

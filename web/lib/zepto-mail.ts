@@ -1,4 +1,5 @@
 import { SendMailClient } from "zeptomail"
+import { MASTER_CLASS_EVENT_DATE } from "@/lib/event"
 
 const url = "https://api.zeptomail.com/v1.1/email"
 const token = process.env.ZEPTO_MAIL_API_TOKEN!
@@ -55,10 +56,10 @@ export function buildConfirmationHtml(first_name: string): string {
                 Hi <strong>${first_name}</strong>,
               </p>
               <p style="margin:0 0 16px;font-size:16px;color:#4E545B;line-height:1.6;">
-                Thank you for registering for <strong style="color:#233a4a;">Mr Jeffrey's Master Class</strong>. We're excited to have you on board!
+                Thank you for registering for <strong style="color:#233a4a;">Mr Jeffrey's Master Class</strong> on <strong style="color:#233a4a;">${MASTER_CLASS_EVENT_DATE}</strong>. We're excited to have you on board!
               </p>
               <p style="margin:0 0 16px;font-size:16px;color:#4E545B;line-height:1.6;">
-                Our team will review your registration and reach out within <strong style="color:#233a4a;">24–48 hours</strong> with further details.
+                Our team will review your registration and reach out within <strong style="color:#233a4a;">24–48 hours</strong> with further details about the event.
               </p>
 
               <!-- What to expect card -->
@@ -73,7 +74,7 @@ export function buildConfirmationHtml(first_name: string): string {
                       </tr>
                       <tr>
                         <td style="padding:6px 0;font-size:14px;color:#4E545B;">📧</td>
-                        <td style="padding:6px 0 6px 8px;font-size:14px;color:#233a4a;">Event details and schedule</td>
+                        <td style="padding:6px 0 6px 8px;font-size:14px;color:#233a4a;">Event date: ${MASTER_CLASS_EVENT_DATE}</td>
                       </tr>
                       <tr>
                         <td style="padding:6px 0;font-size:14px;color:#4E545B;">🏠</td>

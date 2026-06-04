@@ -122,3 +122,20 @@ html {
     transform: none;
   }
 }
+
+/* Registration step 1 — single screen, no page scroll */
+#register-root.register-step-one {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+#register-root.register-step-one .register-main {
+  height: 100%;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  #register-root.register-step-one {
+    display: flex;
+  }
+}
