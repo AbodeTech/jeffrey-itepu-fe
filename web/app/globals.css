@@ -139,3 +139,43 @@ html {
     display: flex;
   }
 }
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Webinar route — isolate from portfolio global heading/body styles */
+.webinar-page {
+  text-align: left;
+  --font-sans: var(--font-plus-jakarta), "Figtree", sans-serif;
+  color: var(--abode-black);
+  /* Jeff site blue theme (replaces Abode Academy orange) */
+  --abode-orange: #05aaff;
+  --color-abode-orange: #05aaff;
+}
+
+.webinar-page h1,
+.webinar-page h2,
+.webinar-page h3,
+.webinar-page h4,
+.webinar-page h5,
+.webinar-page h6 {
+  text-align: unset;
+  font-family: unset;
+  font-weight: unset;
+  line-height: unset;
+  letter-spacing: unset;
+}
+
+.webinar-page p {
+  font-family: var(--font-sans);
+  font-weight: unset;
+  font-size: unset;
+  line-height: unset;
+  letter-spacing: unset;
+}

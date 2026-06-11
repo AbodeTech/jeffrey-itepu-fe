@@ -87,7 +87,12 @@ export function Footer() {
                 Resources
               </p>
               <ul className="mt-6 space-y-5">
-                <li className="text-[16px] leading-[145%] text-[##505153]">
+                <li className="text-[16px] leading-[145%] text-[#505153]">
+                  <Link href="/webinar" className="transition hover:text-[#05AAFF]">
+                    Webinar
+                  </Link>
+                </li>
+                <li className="text-[16px] leading-[145%] text-[#505153]">
                   Book Jeff
                 </li>
                 <li className="text-[16px] leading-[145%] text-[#505153]">

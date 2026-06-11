@@ -157,7 +157,7 @@ export function PortfolioPage() {
                 </p>
               </div>
 
-              {/* <div className="mx-auto mt-8 grid max-w-[1000px] gap-4 sm:mt-10 md:grid-cols-2">
+              <div className="mx-auto mt-8 grid max-w-[1000px] gap-4 sm:mt-10 md:grid-cols-2">
                 <article className="rounded-[4px] border border-[#E5E8EC] bg-white p-5">
                   <Image
                     src={portfolioContent.ownership.cards[0].logo}
@@ -187,9 +187,9 @@ export function PortfolioPage() {
                     {portfolioContent.ownership.cards[1].location}
                   </p>
                 </article>
-              </div> */}
+              </div>
 
-              <div className="mx-auto mt-10 flex max-w-[420px] flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10">
+              <div className="mx-auto mt-8 flex max-w-[420px] flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10">
                 <Image src="/assets/the-guardian.svg" alt="The Guardian" width={152} height={32} />
                 <Image src="/assets/vanguard.svg" alt="Vanguard" width={148} height={32} />
                 <Image src="/assets/the-sun.svg" alt="The Sun" width={50} height={32} />

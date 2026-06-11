@@ -11,6 +11,7 @@ const links = [
   { label: "Home", href: "/" },
   { label: "Invest", href: "/invest" },
   { label: "Learn", href: "/learn" },
+  { label: "Webinar", href: "/webinar" },
   { label: "About", href: "/about" },
   { label: "Book Jeff", href: "/book-jeff" },
   { label: "Contact", href: "/contact" },
@@ -57,9 +58,9 @@ export function Navbar() {
           ))}
         </ul>
         <div className="hidden lg:block">
-          <Link href="/register">
+          <Link href="/ownership-network">
             <Button className="rounded-[12px] bg-[#05AAFF] px-5 py-2.5 text-[12px] text-white hover:bg-[#0499E5]">
-              Register
+              Join the Ownership Network
             </Button>
           </Link>
         </div>
@@ -117,9 +118,9 @@ export function Navbar() {
               </ul>
 
               <div className="mt-auto">
-                <Link href="/register" onClick={() => setOpen(false)}>
+                <Link href="/ownership-network" onClick={() => setOpen(false)}>
                   <Button className="w-full rounded-[14px] bg-[#05AAFF] py-3 text-[14px] text-white hover:bg-[#0499E5]">
-                    Register
+                    Join the Ownership Network
                   </Button>
                 </Link>
                 <p className="mt-4 text-center text-[13px] text-[#B1B1B1]">

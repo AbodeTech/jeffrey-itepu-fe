@@ -12,3 +12,11 @@ const JEFFERY_ITEPU_DOMAINS = new Set([
 export function isJefferyItepuHost(hostname: string): boolean {
   return JEFFERY_ITEPU_DOMAINS.has(hostname.toLowerCase())
 }
+
+export function getRegisterHref(_hostname?: string): string {
+  return "/register"
+}
+
+export function getHeroPortraitSrc(_hostname?: string): string {
+  return "/about/about-hero-portrait.png"
+}
