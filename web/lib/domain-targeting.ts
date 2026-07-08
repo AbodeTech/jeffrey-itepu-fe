@@ -14,9 +14,11 @@ export function isJefferyItepuHost(hostname: string): boolean {
 }
 
 export function getRegisterHref(_hostname?: string): string {
+  void _hostname
   return "/register"
 }
 
 export function getHeroPortraitSrc(_hostname?: string): string {
+  void _hostname
   return "/about/about-hero-portrait.png"
 }
