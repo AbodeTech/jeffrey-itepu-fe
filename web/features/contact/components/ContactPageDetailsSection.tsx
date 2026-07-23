@@ -1,13 +1,53 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 
 import { useContactForm } from "../hooks/use-contact-form";
 import { contactReasons } from "../schemas/contact-form.schema";
 
 export function ContactPageDetailsSection() {
-  const { formData, setFormData, isValid } = useContactForm();
+  const { formData, setFormData, isValid, resetForm } = useContactForm();
+  const [showToast, setShowToast] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isValid || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          reason: formData.reason,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        setSubmitError(result.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setShowToast(true);
+      resetForm();
+    } catch {
+      setSubmitError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section className="w-full bg-[#FFFFFF] py-10 sm:py-12 lg:py-14">
@@ -83,7 +123,7 @@ export function ContactPageDetailsSection() {
               Contact Form
             </h2>
 
-            <form className="mt-4 space-y-3">
+            <form className="mt-4 space-y-3" onSubmit={handleSubmit}>
               <div className="grid gap-3 md:grid-cols-2 md:gap-4">
                 <div>
                   <label className="mb-1.5 block text-[14px] leading-[120%] text-[#5D6067]">First Name</label>
@@ -171,19 +211,69 @@ export function ContactPageDetailsSection() {
               </div>
 
               <button
-                type="button"
-                disabled={!isValid}
+                type="submit"
+                disabled={!isValid || isSubmitting}
                 className={`mt-1 inline-flex h-[48px] w-full items-center justify-center rounded-[14px] text-[15px] font-medium text-white transition ${
-                  isValid ? "bg-[#05AAFF] hover:bg-[#0798E1]" : "cursor-not-allowed bg-[#AFC4D3]"
+                  isValid && !isSubmitting
+                    ? "bg-[#05AAFF] hover:bg-[#0798E1]"
+                    : "cursor-not-allowed bg-[#AFC4D3]"
                 }`}
                 style={{ fontFamily: "var(--font-delight)" }}
               >
-                Submit
+                {isSubmitting ? "Submitting..." : "Submit"}
               </button>
+              {submitError && (
+                <p className="text-sm text-red-600" style={{ fontFamily: "var(--font-delight)" }}>
+                  {submitError}
+                </p>
+              )}
             </form>
           </div>
         </div>
       </div>
+
+      {showToast && (
+        <div className="fixed bottom-4 left-4 z-50 animate-in slide-in-from-bottom duration-300">
+          <div
+            className="flex items-start justify-between rounded-lg px-4 pb-4 pt-6 shadow-lg"
+            style={{ backgroundColor: "#F6FFF9", width: "415px" }}
+          >
+            <div className="flex items-start space-x-3">
+              <div className="shrink-0">
+                <Image src="/assets/mark.svg" alt="Success" width={24} height={24} />
+              </div>
+              <div className="flex-1">
+                <h4
+                  className="text-sm font-semibold text-gray-900"
+                  style={{ fontFamily: "var(--font-delight)" }}
+                >
+                  Message submitted
+                </h4>
+                <p
+                  className="mt-1 text-sm text-gray-600"
+                  style={{ fontFamily: "var(--font-delight)" }}
+                >
+                  The team will reach out to you soon
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={() => setShowToast(false)}
+              className="shrink-0 rounded-md p-1 transition-colors hover:bg-gray-100"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M12 4L4 12M4 4L12 12"
+                  stroke="#6B7280"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
 
       <style jsx global>{`
         .contact-phone-field {

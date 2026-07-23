@@ -38,14 +38,14 @@ export function InvestOwnershipAfricaSection() {
             <div className="w-full min-w-0 pl-0 md:pl-4 lg:pl-12 xl:pl-[168px]">
               <div className="mb-8 max-w-full space-y-5 md:mb-16 md:space-y-7 lg:mb-20 lg:max-w-[800px]">
                 <p className="mb-4 text-left text-[12px] font-normal leading-[185%] text-[#3C3C3C] md:mb-7 md:text-[13px]">
-                  I work at the intersection of real estate, technology, and community, focused
-                  on how property ownership can become more accessible, trusted, and scalable
-                  across African markets.
+                  He works at the intersection of real estate, technology, and community, focused
+                  on making property ownership more accessible, transparent, and scalable across
+                  African markets.
                 </p>
                 <p className="text-left text-[12px] font-normal leading-[185%] text-[#3C3C3C] md:text-[13px]">
-                  My work centres on building not just assets, but the systems, structures, and
-                  relationships that support sustainable ownership over time. My work spans
-                  three connected areas:
+                  His work goes beyond developing assets. It centres on building the systems,
+                  structures, and relationships that enable sustainable ownership and long-term
+                  value creation. His work spans three connected areas:
                 </p>
               </div>
 

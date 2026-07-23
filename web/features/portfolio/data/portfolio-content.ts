@@ -11,9 +11,16 @@ export const portfolioContent = {
   },
   about: {
     paragraphs: [
-      "Jeffrey Itepu is a visionary leader and Co-Founder & CEO of a pioneering social community leveraging technology to democratise real estate ownership in Africa, with a proven track record of developing thriving startups and leading business expansion in the industry.",
-      "Above all, I am a Christian, a husband to Yemisi Itepu, and a father to a bright child. My faith and family anchor my decisions and shape my long-term vision. Democratizing real estate in Africa is not a short-term ambition; it is about building systems that serve this generation and those that follow.",
+      "Jeffrey Itepu is an entrepreneur, business leader, and Co-Founder & CEO of Abode, a pioneering social community leveraging technology to expand access to property ownership across Africa.",
+      "With over a decade of experience in real estate, business development, and community building, he has led the growth of ventures focused on creating sustainable pathways to ownership and long-term wealth creation.",
+      "Beyond business, Jeffrey is a devoted Christian, husband to Yemisi Itepu, and father. His faith and family remain the foundation of his leadership philosophy, shaping the values, decisions, and long-term vision that guide his work.",
+      "For Jeffrey, democratizing real estate ownership is more than a business objective. It is a commitment to building systems that empower individuals, strengthen communities, and create opportunities that endure across generations.",
     ],
+    measuredProgress: {
+      heading: "Building Through Consistency",
+      description:
+        "Meaningful impact is rarely achieved overnight. It is built through disciplined execution, trusted partnerships, and a commitment to creating lasting value.",
+    },
     stats: [
       { value: "10+", label: "Years Experience in Real Estate" },
       { value: "3,000+", label: "Community Members Reached" },
@@ -22,43 +29,44 @@ export const portfolioContent = {
   },
   ownership: {
     intro: [
-      "I work at the intersection of real estate, technology, and community, focused on how property ownership can become more accessible, trusted, and scalable across African markets.",
-      "My work centers on building not just ventures, but the systems, structures, and relationships that support sustainable ownership over time.",
+      "He works at the intersection of real estate, technology, and community, focused on making property ownership more accessible, transparent, and scalable across African markets.",
+      "His work goes beyond developing assets. It centres on building the systems, structures, and relationships that enable sustainable ownership and long-term value creation.",
     ],
     pillars: [
       {
         title: "Real Estate",
         description:
-          "Designing real estate ownership models that lower barriers to entry.",
+          "Designing ownership models that reduce barriers to entry and create greater access to property ownership.",
         icon: "/assets/tree.svg",
       },
       {
         title: "Technology",
         description:
-          "Building technology-enabled platforms that improve transparency and trust.",
+          "Building technology-enabled platforms that enhance transparency, improve trust, and simplify the ownership journey.",
         icon: "/assets/laptop.svg",
       },
       {
         title: "Community",
         description:
-          "Growing long-term communities centered around shared ownership and value creation.",
+          "Growing communities where shared ownership creates opportunities for collaboration, wealth creation, and long-term prosperity.",
         icon: "/assets/real-estate.svg",
       },
     ],
     heading: "Building for Ownership in Africa",
     description:
-      "I lead and lend ventures focused on expanding access to real estate ownership, creating ethical engagement models where individuals and communities can participate meaningfully in long-term wealth creation.",
+      "Across every venture he leads, the focus remains the same: expanding access to ownership and creating pathways for more Africans to participate meaningfully in wealth creation.",
     cards: [
       {
         title: "Abode",
-        subtitle: "A modern social real estate community expanding access to property ownership across Africa.",
+        subtitle:
+          "A modern social real estate community leveraging technology, trust, and community to expand access to property ownership across Africa.",
         location: "Co-Founder & CEO",
         logo: "/assets/abode-logo.svg",
       },
       {
         title: "Acquest Properties Limited",
         subtitle:
-          "A real estate firm focused on proper city developments, ownership planning, and strategic expansion.",
+          "A real estate development company focused on strategic growth, sustainable city development, and innovative ownership solutions.",
         location: "Co-Founder",
       },
     ],

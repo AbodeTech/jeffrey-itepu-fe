@@ -23,7 +23,7 @@ export function PortfolioPage() {
               <div className="grid min-w-0 items-center gap-8 md:gap-10 lg:grid-cols-[1fr_minmax(0,430px)]">
                 <div className="min-w-0 space-y-6 text-left md:text-center lg:text-left">
                   <p className="max-w-full text-[12px] leading-6 text-[#3D3D3D] sm:max-w-[520px] md:mx-auto md:text-[13px] lg:mx-0">
-                    Jeffrey Itepu is a visionary leader and Co-Founder & CEO of{" "}
+                    Jeffrey Itepu is an entrepreneur, business leader, and Co-Founder & CEO of{" "}
                     <Image
                       src="/assets/abode-logo.svg"
                       alt="Abode logo"
@@ -31,12 +31,17 @@ export function PortfolioPage() {
                       height={13}
                       className="mx-1 inline-block align-middle"
                     />{" "}
-                    a pioneering social community leveraging technology to democratise real estate
-                    ownership in Africa, with a proven track record of developing thriving startups
-                    and leading business expansion in the industry.
+                    a pioneering social community leveraging technology to expand access to property
+                    ownership across Africa.
                   </p>
                   <p className="max-w-full text-[12px] leading-6 text-[#3D3D3D] sm:max-w-[520px] md:mx-auto md:text-[13px] lg:mx-0">
                     {portfolioContent.about.paragraphs[1]}
+                  </p>
+                  <p className="max-w-full text-[12px] leading-6 text-[#3D3D3D] sm:max-w-[520px] md:mx-auto md:text-[13px] lg:mx-0">
+                    {portfolioContent.about.paragraphs[2]}
+                  </p>
+                  <p className="max-w-full text-[12px] leading-6 text-[#3D3D3D] sm:max-w-[520px] md:mx-auto md:text-[13px] lg:mx-0">
+                    {portfolioContent.about.paragraphs[3]}
                   </p>
                 </div>
 
@@ -67,11 +72,10 @@ export function PortfolioPage() {
                       className="text-left text-[26px] font-bold leading-[118%] tracking-[-0.02em] text-[#233A4A] sm:text-[30px] md:text-[34px] lg:text-[38px]"
                       style={{ fontFamily: "var(--font-agrandir)" }}
                     >
-                      Measured progress over time.
+                      {portfolioContent.about.measuredProgress.heading}
                     </h6>
                     <p className="mt-3 max-w-full text-left text-[11px] leading-[150%] text-[#5D5D5D] sm:max-w-[420px] md:text-[12px]">
-                      Experience built through consistent execution, partnerships, and long-term
-                      focus.
+                      {portfolioContent.about.measuredProgress.description}
                     </p>
                   </div>
 
@@ -115,14 +119,10 @@ export function PortfolioPage() {
                 <div className="w-full min-w-0 pl-0 md:pl-4 lg:pl-12 xl:pl-[168px]">
                   <div className="mb-12 max-w-full space-y-6 md:mb-16 md:space-y-7 lg:mb-20 lg:max-w-[800px]">
                     <p className="mb-4 text-left text-[11px] font-normal leading-[185%] text-[#3C3C3C] md:mb-7 md:text-[12px]">
-                      I work at the intersection of real estate, technology, and community, focused
-                      on how property ownership can become more accessible, trusted, and scalable
-                      across African markets.
+                      {portfolioContent.ownership.intro[0]}
                     </p>
                     <p className="text-left text-[11px] font-normal leading-[185%] text-[#3C3C3C] md:text-[12px]">
-                      My work centres on building not just assets, but the systems, structures, and
-                      relationships that support sustainable ownership over time. My work spans
-                      three connected areas:
+                      {portfolioContent.ownership.intro[1]} His work spans three connected areas:
                     </p>
                   </div>
 
@@ -230,14 +230,13 @@ export function PortfolioPage() {
                   className="w-full max-w-full text-left text-[26px] font-bold leading-[112%] tracking-[-0.02em] text-[#233A4A] sm:text-[30px] md:text-[32px] lg:text-[34px]"
                   style={{ fontFamily: "var(--font-agrandir)", textAlign: "left" }}
                 >
-                  <span className="block w-full text-left">Invest in Your Future;</span>
-                  <span className="block w-full text-left">Join the Abode Community.</span>
+                  <span className="block w-full text-left">Invest in Your Future.</span>
+                  <span className="block w-full text-left">Build for Generations.</span>
                 </h3>
                 <p className="mt-4 max-w-full text-[11px] leading-[180%] text-[#505B63] sm:mt-5 sm:max-w-[480px] md:text-[12px]">
-                  At Abode, we believe that real estate ownership should be accessible to everyone.
-                  Our community offers a unique opportunity to build wealth, foster lifelong
-                  partnerships, and invest in supportive networks. At Abode, we are what we say we
-                  are.
+                  Join the Abode community to participate in structured pathways to ownership,
+                  build lasting partnerships, and invest in systems designed to create value that
+                  endures across generations.
                 </p>
                 <Button className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#23A8EA] px-8 py-2.5 text-[11px] text-white hover:bg-[#1C97D5]">
                   Invest with Abode

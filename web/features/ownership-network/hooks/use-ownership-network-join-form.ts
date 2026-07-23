@@ -14,9 +14,14 @@ export function useOwnershipNetworkJoinForm(
   const [formData, setFormData] = useState<OwnershipNetworkJoinFormValues>(initialValues);
   const isValid = useMemo(() => isOwnershipNetworkJoinFormValid(formData), [formData]);
 
+  const resetForm = () => {
+    setFormData(initialOwnershipNetworkJoinFormValues);
+  };
+
   return {
     formData,
     setFormData,
     isValid,
+    resetForm,
   };
 }

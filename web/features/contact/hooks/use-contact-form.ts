@@ -13,9 +13,14 @@ export function useContactForm(initialValues: ContactFormValues = initialContact
 
   const valid = useMemo(() => isContactFormValid(formData), [formData]);
 
+  const resetForm = () => {
+    setFormData(initialContactFormValues);
+  };
+
   return {
     formData,
     setFormData,
     isValid: valid,
+    resetForm,
   };
 }

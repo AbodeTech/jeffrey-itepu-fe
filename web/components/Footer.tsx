@@ -17,12 +17,12 @@ export function Footer() {
               Jeffrey Itepu
             </p>
             <p className="mt-1 max-w-[350px] text-[30px] leading-[165%] text-[#4E545B]">
-              builds real estate communities that expand access to property
-              ownership through technology.
+              builds real estate communities that expand access to ownership
+              through technology, innovation, and trust.
             </p>
 
             <p className="mt-8 text-[20px] font-medium tracking-[0.12em] text-[#62666B] uppercase">
-              Connect with me:
+              Connect with Jeff
             </p>
             <div className="mt-4 flex items-center gap-6">
               <Link href="#" aria-label="LinkedIn">
@@ -71,13 +71,24 @@ export function Footer() {
               </p>
               <ul className="mt-6 space-y-5">
                 <li className="text-[16px] leading-[145%] text-[#505153]">
-                  About Jeff
+                  <Link href="/about" className="transition hover:text-[#05AAFF]">
+                    About Jeff
+                  </Link>
                 </li>
                 <li className="text-[16px] leading-[145%] text-[#505153]">
-                  Invest With Jeff
+                  <Link href="/foundation" className="transition hover:text-[#05AAFF]">
+                    Foundation
+                  </Link>
                 </li>
                 <li className="text-[16px] leading-[145%] text-[#505153]">
-                  Real Estate University
+                  <Link href="/invest" className="transition hover:text-[#05AAFF]">
+                    Invest With Jeff
+                  </Link>
+                </li>
+                <li className="text-[16px] leading-[145%] text-[#505153]">
+                  <Link href="/learn" className="transition hover:text-[#05AAFF]">
+                    Real Estate University
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -93,13 +104,22 @@ export function Footer() {
                   </Link>
                 </li>
                 <li className="text-[16px] leading-[145%] text-[#505153]">
-                  Book Jeff
+                  <Link href="/book-jeff" className="transition hover:text-[#05AAFF]">
+                    Book Jeff
+                  </Link>
                 </li>
                 <li className="text-[16px] leading-[145%] text-[#505153]">
-                  Join the Ownership Network
+                  <Link
+                    href="/ownership-network"
+                    className="transition hover:text-[#05AAFF]"
+                  >
+                    Join the Ownership Network
+                  </Link>
                 </li>
                 <li className="text-[16px] leading-[145%] text-[#505153]">
-                  Learn With Jeff
+                  <Link href="/learn" className="transition hover:text-[#05AAFF]">
+                    Mentorship
+                  </Link>
                 </li>
               </ul>
             </div>

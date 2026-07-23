@@ -6,6 +6,11 @@ import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import { useBookJeffContactForm } from "../hooks/use-book-jeff-contact-form";
 
+const fieldClass =
+  "h-[48px] w-full rounded-[12px] border border-[#DCE0E7] bg-transparent px-3 text-[14px] text-[#3F434A] outline-none placeholder:text-[#B1B6BF] transition focus:border-[#05AAFF]";
+
+const labelClass = "mb-1.5 block text-[14px] leading-[120%] text-[#5D6067]";
+
 export function BookJeffContactSection() {
   const { formData, setFormData, isValid: isFormValid, resetForm } = useBookJeffContactForm();
 
@@ -53,291 +58,265 @@ export function BookJeffContactSection() {
     }
   };
 
+  const openDatePicker = (input: HTMLInputElement | null) => {
+    if (!input) return;
+    input.type = "date";
+    setTimeout(() => input.showPicker?.(), 0);
+  };
+
   return (
     <>
-      <SectionWrapper id="contact" className="bg-[#F8FEFF] py-16!">
+      <SectionWrapper id="contact-form" className="bg-[#F8FEFF] py-12! sm:py-16!">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-          <div className="flex flex-col gap-8 md:flex-col md:gap-8 lg:flex-row lg:gap-12 lg:items-center items-start">
-            {/* Left Side - Image */}
+          <div className="flex flex-col items-stretch gap-8 lg:flex-row lg:items-center lg:gap-12">
             <div className="w-full lg:w-1/2">
-              <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[701px]">
+              <div className="relative h-[320px] w-full sm:h-[420px] md:h-[500px] lg:h-[640px] xl:h-[701px]">
                 <Image
                   src="/assets/peace.png"
-                  alt="Jeffery Itepu - Professional portrait"
+                  alt="Jeffrey Itepu"
                   fill
-                  className="w-full h-full rounded-2xl object-cover"
+                  className="rounded-2xl object-cover"
                   sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 563px"
                   priority
                 />
               </div>
             </div>
 
-            {/* Right Side - Form */}
-            <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
-              <div className="bg-white border border-gray-200 rounded-[16px] shadow-lg w-full max-w-[563px] mx-auto md:w-full md:max-w-none lg:mx-0 lg:w-[563px]" style={{ height: 'auto', minHeight: 'auto', paddingTop: '28px', paddingRight: '28px', paddingBottom: '28px', paddingLeft: '28px' }}>
-                {/* Header */}
-                <div className="mb-6">
+            <div className="flex w-full justify-center lg:w-1/2 lg:justify-start">
+              <div className="w-full max-w-[563px] rounded-[16px] border border-[#E6ECF2] bg-white p-5 sm:p-7">
+                <div className="mb-6 text-left!">
                   <h2
-                    className="text-2xl sm:text-3xl font-bold mb-2"
-                    style={{ fontFamily: "var(--font-agrandir)", color: '#05AAFF' }}
+                    className="mb-2 text-left! text-[28px] font-bold leading-[112%] tracking-[-0.02em] text-[#05AAFF] sm:text-[34px]"
+                    style={{ fontFamily: "var(--font-agrandir)" }}
                   >
-                    Invite Jeff to Speak
+                    Start the Conversation.
                   </h2>
                   <p
-                    className="text-gray-600"
+                    className="text-left text-[14px] leading-[160%] text-[#6C7881] sm:text-[15px]"
                     style={{ fontFamily: "var(--font-delight)" }}
                   >
-                    Share your event information below and the team will respond with next steps.
+                    Every meaningful conversation begins with the right audience. Share details
+                    about your event, and Jeffrey&apos;s team will review the request to determine
+                    how the session can create the greatest value for your audience.
                   </p>
                 </div>
 
-                {/* Form */}
-                <form className="space-y-4" onSubmit={handleSubmit}>
-                  {/* Full Name and Organization - Two Columns */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Full Name */}
+                <form className="space-y-4" onSubmit={handleSubmit} noValidate>
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <div>
-                      <label
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                        style={{ fontFamily: "var(--font-delight)" }}
-                      >
+                      <label htmlFor="book-jeff-full-name" className={labelClass} style={{ fontFamily: "var(--font-delight)" }}>
                         Full Name
                       </label>
                       <input
+                        id="book-jeff-full-name"
                         type="text"
+                        autoComplete="name"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         placeholder="e.g. John Smith"
-                        className="px-3 py-2 border border-gray-300 focus:border-transparent outline-none transition text-sm max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full focus:bg-[#D3EAF5]"
-                        style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px' }}
+                        className={fieldClass}
+                        style={{ fontFamily: "var(--font-delight)" }}
                       />
                     </div>
 
-                    {/* Organization */}
                     <div>
-                      <label
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                        style={{ fontFamily: "var(--font-delight)" }}
-                      >
+                      <label htmlFor="book-jeff-organization" className={labelClass} style={{ fontFamily: "var(--font-delight)" }}>
                         Organization / Company Name
                       </label>
                       <input
+                        id="book-jeff-organization"
                         type="text"
+                        autoComplete="organization"
                         value={formData.organization}
                         onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                         placeholder="e.g. Acme Corporation"
-                        className="px-3 py-2 border border-gray-300 focus:border-transparent outline-none transition text-sm max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full focus:bg-[#D3EAF5]"
-                        style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px' }}
+                        className={fieldClass}
+                        style={{ fontFamily: "var(--font-delight)" }}
                       />
                     </div>
                   </div>
 
-                  {/* Email and Phone - Two Columns */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Email */}
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <div>
-                      <label
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                        style={{ fontFamily: "var(--font-delight)" }}
-                      >
+                      <label htmlFor="book-jeff-email" className={labelClass} style={{ fontFamily: "var(--font-delight)" }}>
                         Email Address
                       </label>
                       <input
+                        id="book-jeff-email"
                         type="email"
+                        autoComplete="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="e.g. john.smith@company.com"
-                        className="px-3 py-2 border border-gray-300 focus:border-transparent outline-none transition text-sm max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full focus:bg-[#D3EAF5]"
-                        style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px' }}
+                        className={fieldClass}
+                        style={{ fontFamily: "var(--font-delight)" }}
                       />
                     </div>
 
-                    {/* Phone */}
                     <div>
-                      <label
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                        style={{ fontFamily: "var(--font-delight)" }}
-                      >
+                      <label htmlFor="book-jeff-phone" className={labelClass} style={{ fontFamily: "var(--font-delight)" }}>
                         Phone Number
                       </label>
-                      <div className="max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full">
-                        <PhoneInput
-                          international
-                          defaultCountry="NG"
-                          countryCallingCodeEditable={false}
-                          value={formData.phone}
-                          onChange={(value) => setFormData({ ...formData, phone: value ?? "" })}
-                          placeholder="e.g. 818 833 7211"
-                          className="book-jeff-phone-input"
-                        />
-                      </div>
+                      <PhoneInput
+                        id="book-jeff-phone"
+                        international
+                        defaultCountry="NG"
+                        countryCallingCodeEditable={false}
+                        value={formData.phone}
+                        onChange={(value) => setFormData({ ...formData, phone: value ?? "" })}
+                        placeholder="e.g. 818 833 7211"
+                        className="book-jeff-phone-input"
+                      />
                     </div>
                   </div>
 
-                  {/* Event Type and Event Date - Two Columns */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Event Type */}
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <div>
-                      <label
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                        style={{ fontFamily: "var(--font-delight)" }}
-                      >
+                      <label htmlFor="book-jeff-event-type" className={labelClass} style={{ fontFamily: "var(--font-delight)" }}>
                         Event Type
                       </label>
-                      <div className="relative max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full">
+                      <div className="relative w-full">
                         <select
+                          id="book-jeff-event-type"
                           value={formData.eventType}
                           onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
-                          className="pl-3 pr-10 py-2 border border-gray-300 focus:border-transparent outline-none transition appearance-none bg-white text-sm w-full focus:bg-[#D3EAF5] active:bg-[#D3EAF5]"
-                          style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px' }}
+                          className={`${fieldClass} appearance-none pr-10`}
+                          style={{ fontFamily: "var(--font-delight)" }}
                         >
                           <option>Conference</option>
                           <option>Workshop</option>
                           <option>Keynote</option>
                           <option>Panel Discussion</option>
                         </select>
-                        <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none z-10">
-                          <Image
-                            src="/assets/arrow-down.svg"
-                            alt="Dropdown"
-                            width={16}
-                            height={16}
-                          />
-                        </div>
+                        <Image
+                          src="/assets/arrow-down.svg"
+                          alt=""
+                          aria-hidden
+                          width={16}
+                          height={16}
+                          className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2"
+                        />
                       </div>
                     </div>
 
-                    {/* Event Date */}
                     <div>
-                      <label
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                        style={{ fontFamily: "var(--font-delight)" }}
-                      >
+                      <label htmlFor="book-jeff-event-date" className={labelClass} style={{ fontFamily: "var(--font-delight)" }}>
                         Event Date
                       </label>
-                      <div className="relative max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full">
+                      <div className="relative w-full">
                         <input
+                          id="book-jeff-event-date"
                           type="text"
                           value={formData.eventDate}
                           onChange={(e) => setFormData({ ...formData, eventDate: e.target.value })}
-                          onClick={(e) => {
-                            const input = e.currentTarget as HTMLInputElement;
-                            input.type = 'date';
-                            setTimeout(() => input.showPicker?.(), 0);
-                          }}
+                          onClick={(e) => openDatePicker(e.currentTarget)}
                           onContextMenu={(e) => e.preventDefault()}
                           placeholder="e.g. October 15, 2026"
-                          className="px-3 py-2 pr-10 border border-gray-300 focus:border-transparent outline-none transition text-sm w-full focus:bg-[#D3EAF5] [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-inner-spin-button]:hidden [&::-webkit-outer-spin-button]:hidden"
-                          style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px', colorScheme: 'light', WebkitAppearance: 'none', MozAppearance: 'textfield' }}
-                        />
-                        <div
-                          className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none z-10 cursor-pointer"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            const input = e.currentTarget.previousElementSibling as HTMLInputElement;
-                            if (input) {
-                              input.type = 'date';
-                              setTimeout(() => input.showPicker?.(), 0);
-                            }
+                          className={`${fieldClass} pr-10 [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-inner-spin-button]:hidden [&::-webkit-outer-spin-button]:hidden`}
+                          style={{
+                            fontFamily: "var(--font-delight)",
+                            colorScheme: "light",
+                            WebkitAppearance: "none",
+                            MozAppearance: "textfield",
                           }}
+                        />
+                        <button
+                          type="button"
+                          aria-label="Open calendar"
+                          className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md"
+                          onClick={() =>
+                            openDatePicker(
+                              document.getElementById("book-jeff-event-date") as HTMLInputElement | null,
+                            )
+                          }
                         >
-                          <Image
-                            src="/assets/calendar.svg"
-                            alt="Calendar"
-                            width={16}
-                            height={16}
-                          />
-                        </div>
+                          <Image src="/assets/calendar.svg" alt="" aria-hidden width={16} height={16} />
+                        </button>
                       </div>
                     </div>
                   </div>
 
-                  {/* Event Location and Format - Two Columns */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Event Location */}
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <div>
-                      <label
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                        style={{ fontFamily: "var(--font-delight)" }}
-                      >
+                      <label htmlFor="book-jeff-event-location" className={labelClass} style={{ fontFamily: "var(--font-delight)" }}>
                         Event Location
                       </label>
                       <input
+                        id="book-jeff-event-location"
                         type="text"
                         value={formData.eventLocation}
                         onChange={(e) => setFormData({ ...formData, eventLocation: e.target.value })}
                         placeholder="e.g. Lagos, Nigeria"
-                        className="px-3 py-2 border border-gray-300 focus:border-transparent outline-none transition text-sm max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full focus:bg-[#D3EAF5]"
-                        style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px' }}
+                        className={fieldClass}
+                        style={{ fontFamily: "var(--font-delight)" }}
                       />
                     </div>
 
-                    {/* Format */}
                     <div>
-                      <label
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                        style={{ fontFamily: "var(--font-delight)" }}
-                      >
+                      <label htmlFor="book-jeff-format" className={labelClass} style={{ fontFamily: "var(--font-delight)" }}>
                         Format
                       </label>
-                      <div className="relative max-w-[250px] w-full max-sm:max-w-none md:max-w-none md:w-full">
+                      <div className="relative w-full">
                         <select
+                          id="book-jeff-format"
                           value={formData.format}
                           onChange={(e) => setFormData({ ...formData, format: e.target.value })}
-                          className="px-3 py-2 border border-gray-300 focus:border-transparent outline-none transition appearance-none bg-white text-sm w-full focus:bg-[#D3EAF5]"
-                          style={{ fontFamily: "var(--font-delight)", height: '48px', borderRadius: '12px', borderWidth: '1px' }}
+                          className={`${fieldClass} appearance-none pr-10`}
+                          style={{ fontFamily: "var(--font-delight)" }}
                         >
                           <option>In-Person</option>
                           <option>Virtual</option>
                           <option>Hybrid</option>
                         </select>
-                        <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none z-10">
-                          <Image
-                            src="/assets/arrow-down.svg"
-                            alt="Dropdown"
-                            width={16}
-                            height={16}
-                          />
-                        </div>
+                        <Image
+                          src="/assets/arrow-down.svg"
+                          alt=""
+                          aria-hidden
+                          width={16}
+                          height={16}
+                          className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2"
+                        />
                       </div>
                     </div>
                   </div>
 
-                  {/* Additional Notes */}
                   <div>
-                    <label
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                      style={{ fontFamily: "var(--font-delight)" }}
-                    >
+                    <label htmlFor="book-jeff-notes" className={labelClass} style={{ fontFamily: "var(--font-delight)" }}>
                       Additional Notes
                     </label>
                     <textarea
+                      id="book-jeff-notes"
                       rows={3}
                       value={formData.additionalNotes}
                       onChange={(e) => setFormData({ ...formData, additionalNotes: e.target.value })}
-                      placeholder="e.g. Annual Real Estate Summit with 500+ attendees. Looking for a keynote on 'The Future of Property Investment in Africa'. Audience: Real estate professionals, investors, and developers."
-                      className="px-3 py-2 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition resize-none text-sm w-full max-w-[507px] max-sm:max-w-none focus:bg-[#D3EAF5]"
-                      style={{ fontFamily: "var(--font-delight)", borderRadius: '12px', borderWidth: '1px' }}
+                      placeholder="Describe your audience, event objectives, expected outcomes, and any specific themes you would like Jeffrey to address."
+                      className="w-full resize-none rounded-[12px] border border-[#DCE0E7] bg-transparent px-3 py-2 text-[14px] text-[#3F434A] outline-none placeholder:text-[#B1B6BF] transition focus:border-[#05AAFF]"
+                      style={{ fontFamily: "var(--font-delight)" }}
                     />
                   </div>
 
-                  {/* Submit Button */}
                   <button
                     type="submit"
                     disabled={!isFormValid || isSubmitting}
-                    className={`w-full font-semibold py-3 px-6 rounded-[20px] transition duration-200 ${isFormValid && !isSubmitting
-                      ? 'bg-[#05AAFF] hover:bg-blue-700 text-white cursor-pointer'
-                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      }`}
+                    className={`inline-flex h-[48px] w-full items-center justify-center rounded-[14px] px-6 text-[15px] font-medium text-white transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#05AAFF] ${
+                      isFormValid && !isSubmitting
+                        ? "cursor-pointer bg-[#05AAFF] hover:bg-[#0798E1]"
+                        : "cursor-not-allowed bg-[#AFC4D3]"
+                    }`}
                     style={{ fontFamily: "var(--font-delight)" }}
                   >
-                    {isSubmitting ? 'Submitting...' : 'Submit Booking Request'}
+                    {isSubmitting ? "Submitting..." : "Request Speaking Availability"}
                   </button>
-                  {submitError && (
-                    <p className="mt-2 text-sm text-red-600" style={{ fontFamily: "var(--font-delight)" }}>
+
+                  {submitError ? (
+                    <p
+                      role="alert"
+                      className="text-sm text-red-600"
+                      style={{ fontFamily: "var(--font-delight)" }}
+                    >
                       {submitError}
                     </p>
-                  )}
+                  ) : null}
                 </form>
               </div>
             </div>
@@ -345,56 +324,57 @@ export function BookJeffContactSection() {
         </div>
       </SectionWrapper>
 
-      {/* Toast Notification */}
-      {showToast && (
-        <div className="fixed bottom-4 left-4 z-50 animate-in slide-in-from-bottom duration-300">
-          <div
-            className="rounded-lg shadow-lg pt-6 px-4 pb-4 flex items-start justify-between"
-            style={{ backgroundColor: '#F6FFF9', width: '415px' }}
-          >
-            <div className="flex items-start space-x-3">
-              <div className="shrink-0">
-                <Image
-                  src="/assets/mark.svg"
-                  alt="Success"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <div className="flex-1">
-                <h4 className="text-sm font-semibold text-gray-900" style={{ fontFamily: "var(--font-delight)" }}>
+      {showToast ? (
+        <div
+          className="fixed inset-x-4 bottom-4 z-50 sm:inset-x-auto sm:left-4 sm:w-[min(100%,415px)]"
+          role="status"
+          aria-live="polite"
+        >
+          <div className="flex w-full items-start justify-between rounded-[12px] px-4 pb-4 pt-6 shadow-[0_4px_12px_rgba(15,23,42,0.12)]" style={{ backgroundColor: "#F6FFF9" }}>
+            <div className="flex items-start gap-3">
+              <Image src="/assets/mark.svg" alt="" aria-hidden width={24} height={24} className="shrink-0" />
+              <div>
+                <h4 className="text-sm font-semibold text-[#233A4A]" style={{ fontFamily: "var(--font-delight)" }}>
                   Speaking request submitted
                 </h4>
-                <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: "var(--font-delight)" }}>
+                <p className="mt-1 text-sm text-[#6C7881]" style={{ fontFamily: "var(--font-delight)" }}>
                   The team will reach out to you on next steps
                 </p>
               </div>
             </div>
             <button
+              type="button"
+              aria-label="Dismiss notification"
               onClick={() => setShowToast(false)}
-              className="shrink-0 p-1 rounded-md hover:bg-gray-100 transition-colors"
+              className="shrink-0 rounded-md p-1 transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#05AAFF]"
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M12 4L4 12M4 4L12 12" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+                <path
+                  d="M12 4L4 12M4 4L12 12"
+                  stroke="#6B7280"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>
         </div>
-      )}
+      ) : null}
+
       <style jsx global>{`
         .book-jeff-phone-input {
           display: flex;
           align-items: center;
           height: 48px;
           width: 100%;
-          border: 1px solid #d1d5db;
+          border: 1px solid #dce0e7;
           border-radius: 12px;
           background: transparent;
           overflow: hidden;
         }
         .book-jeff-phone-input:focus-within {
-          border-color: transparent;
-          background: #d3eaf5;
+          border-color: #05aaff;
         }
         .book-jeff-phone-input .PhoneInputCountry {
           margin: 0;
@@ -403,7 +383,7 @@ export function BookJeffContactSection() {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          border-right: 1px solid #d1d5db;
+          border-right: 1px solid #dce0e7;
         }
         .book-jeff-phone-input .PhoneInputCountrySelect {
           cursor: pointer;
@@ -416,7 +396,11 @@ export function BookJeffContactSection() {
           background: transparent;
           padding: 0 12px;
           font-size: 14px;
+          color: #3f434a;
           font-family: var(--font-delight);
+        }
+        .book-jeff-phone-input .PhoneInputInput::placeholder {
+          color: #b1b6bf;
         }
       `}</style>
     </>
