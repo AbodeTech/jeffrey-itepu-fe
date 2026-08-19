@@ -4,6 +4,29 @@ import Image from "next/image";
 import { useState } from "react";
 import { SectionWrapper } from "@/components/SectionWrapper";
 
+const ledgerPosts = [
+  {
+    date: "11th Jul, 2026",
+    title: "Only 3% of Nigerians truly own their land",
+    excerpt:
+      "Somewhere in Nigeria today, a family is paying legal fees for land they already paid for once. Not because they knowingly bought the wrong property.",
+    href: "https://substack.com/home/post/p-206428357",
+    image: "/ownership/only-3-percent-own-their-land.png",
+    imageAlt:
+      "Graphic of a dotted map of Nigeria with a 3% callout: Only 3% of Nigerians truly own their land.",
+  },
+  {
+    date: "29th May, 2026",
+    title: "Are You Investing in Land… or a Convincing Story?",
+    excerpt:
+      "There's a quiet kind of pride that comes with buying land. It lives in the moment the documents touch your hands, in the small smile that follows the thought: “Finally. Something that is mine.”",
+    href: "https://substack.com/home/post/p-197510036",
+    image: "/ownership/verified-ownership.png",
+    imageAlt:
+      "Abode graphic asking “Am I investing in verified ownership?” with a large orange question mark.",
+  },
+] as const;
+
 export function NewsletterSection() {
   const [email, setEmail] = useState("");
   const [showToast, setShowToast] = useState(false);
@@ -111,28 +134,46 @@ export function NewsletterSection() {
             </p>
 
             <div className="grid gap-6 sm:grid-cols-2">
-              {[1, 2].map((card) => (
-                <article key={card}>
-                  <div className="overflow-hidden rounded-[16px]">
+              {ledgerPosts.map((post, index) => (
+                <article key={`${post.href}-${index}`}>
+                  <a
+                    href={post.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block overflow-hidden rounded-[16px]"
+                  >
                     <Image
-                      src="/ownership/ownership-ledger-post.png"
-                      alt="Street scene artwork for newsletter post"
+                      src={post.image}
+                      alt={post.imageAlt}
                       width={320}
                       height={256}
-                      className="h-auto w-full object-cover"
+                      className="aspect-[320/256] h-auto w-full object-cover"
                     />
-                  </div>
-                  <p className="mt-5 text-[15px] text-[#7D8288]">28th Feb, 2026</p>
+                  </a>
+                  <p className="mt-5 text-[15px] text-[#7D8288]">{post.date}</p>
                   <h4
                     className="mt-3 text-[16px] font-bold leading-[124%] tracking-[-0.02em] text-[#233A4A]"
                     style={{ fontFamily: "var(--font-agrandir)" }}
                   >
-                    <span className="block">How to become a landowner in a land</span>
-                    <span className="block">where nobody owns the land like Lagos</span>
+                    <a
+                      href={post.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition hover:text-[#149BDE]"
+                    >
+                      {post.title}
+                    </a>
                   </h4>
                   <p className="mt-4 text-[15px] leading-[165%] text-[#7C7C7C]">
-                    Create superior code, compose emails, boost any kind of work within a
-                    collaborative team environment.
+                    {post.excerpt}{" "}
+                    <a
+                      href={post.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-[#149BDE] underline-offset-2 transition hover:underline"
+                    >
+                      Read more
+                    </a>
                   </p>
                 </article>
               ))}

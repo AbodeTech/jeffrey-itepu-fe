@@ -1,6 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const socialLinks = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/jeffrey-ehikioya-itepu",
+    icon: "/assets/linkedin.svg",
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/19BVSA9Dbo/",
+    icon: "/assets/facebook.svg",
+  },
+  {
+    label: "Threads",
+    href: "https://www.threads.com/@jeffreyehikioya",
+    icon: "/assets/twitter.svg",
+  },
+  {
+    label: "YouTube",
+    href: "https://youtube.com/@jeffreyehikioya?si=d4PQ07Vzx-nC6DIE",
+    icon: "/assets/youtube.svg",
+  },
+] as const;
+
 export function Footer() {
   return (
     <footer className="bg-[#F5F5F5] pt-14 pb-10">
@@ -25,42 +48,23 @@ export function Footer() {
               Connect with Jeff
             </p>
             <div className="mt-4 flex items-center gap-6">
-              <Link href="#" aria-label="LinkedIn">
-                <Image
-                  src="/assets/linkedin.svg"
-                  alt=""
-                  aria-hidden
-                  width={24}
-                  height={24}
-                />
-              </Link>
-              <Link href="#" aria-label="Instagram">
-                <Image
-                  src="/assets/instagram.svg"
-                  alt=""
-                  aria-hidden
-                  width={24}
-                  height={24}
-                />
-              </Link>
-              <Link href="#" aria-label="Twitter">
-                <Image
-                  src="/assets/twitter.svg"
-                  alt=""
-                  aria-hidden
-                  width={24}
-                  height={24}
-                />
-              </Link>
-              <Link href="#" aria-label="YouTube">
-                <Image
-                  src="/assets/youtube.svg"
-                  alt=""
-                  aria-hidden
-                  width={24}
-                  height={24}
-                />
-              </Link>
+              {socialLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  aria-label={item.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={item.icon}
+                    alt=""
+                    aria-hidden
+                    width={24}
+                    height={24}
+                  />
+                </Link>
+              ))}
             </div>
           </div>
 
