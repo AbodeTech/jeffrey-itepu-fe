@@ -159,6 +159,45 @@ html {
   --color-abode-orange: #05aaff;
 }
 
+/* Admin ledger — isolate from marketing heading centering */
+.admin-ledger {
+  text-align: left;
+}
+
+.admin-ledger h1,
+.admin-ledger h2,
+.admin-ledger h3 {
+  text-align: left;
+}
+
+.admin-ledger p {
+  font-size: unset;
+  line-height: unset;
+}
+
+@keyframes admin-pin-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-7px);
+  }
+  75% {
+    transform: translateX(7px);
+  }
+}
+
+.admin-pin-shake {
+  animation: admin-pin-shake 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-pin-shake {
+    animation: none;
+  }
+}
+
 .webinar-page h1,
 .webinar-page h2,
 .webinar-page h3,

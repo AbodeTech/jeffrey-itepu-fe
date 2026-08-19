@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { cn } from "@/lib/utils";
 
-const DEFAULT_EMAIL = "hello@jeffitepu.com";
+const DEFAULT_EMAIL = "Jeffofficeadmin@gmail.com";
 
 type ContactSectionProps = {
   id?: string;

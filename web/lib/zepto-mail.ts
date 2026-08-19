@@ -142,7 +142,7 @@ export async function sendBookJeffNotification({
 
   await client.sendMail({
     from: FROM,
-    to: [{ email_address: { address: "jeff@myabode.app", name: "Jeffrey Itepu" } }],
+    to: [{ email_address: { address: "Jeffofficeadmin@gmail.com", name: "Jeffrey Itepu" } }],
     subject: `New Speaking Request from ${fullName}`,
     htmlbody: buildBookJeffNotificationHtml({
       fullName,

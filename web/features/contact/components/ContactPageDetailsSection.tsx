@@ -63,11 +63,11 @@ export function ContactPageDetailsSection() {
                   Email
                 </p>
                 <a
-                  href="mailto:hello@jeffitepu.com"
+                  href="mailto:Jeffofficeadmin@gmail.com"
                   className="mt-1 inline-block max-w-full break-all text-[18px] leading-[130%] text-[#505153] underline decoration-[#8D9199] underline-offset-4 sm:text-[19px] lg:text-[20px]"
                   style={{ fontFamily: "var(--font-delight)" }}
                 >
-                  hello@jeffitepu.com
+                  Jeffofficeadmin@gmail.com
                 </a>
               </div>
 
@@ -79,11 +79,11 @@ export function ContactPageDetailsSection() {
                   Speaking Engagement
                 </p>
                 <a
-                  href="mailto:bookings@jeffitepu.com"
+                  href="mailto:Jeffofficeadmin@gmail.com"
                   className="mt-1 inline-block max-w-full break-all text-[18px] leading-[130%] text-[#505153] underline decoration-[#8D9199] underline-offset-4 sm:text-[19px] lg:text-[20px]"
                   style={{ fontFamily: "var(--font-delight)" }}
                 >
-                  bookings@jeffitepu.com
+                  Jeffofficeadmin@gmail.com
                 </a>
               </div>
             </div>

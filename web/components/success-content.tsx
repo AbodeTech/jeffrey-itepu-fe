@@ -52,10 +52,10 @@ export function SuccessContent() {
         <p className="font-sans text-xs text-[#B1B1B1]">Have a question? Reach us at</p>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a
-            href="mailto:hello@jeffitepu.com"
+            href="mailto:Jeffofficeadmin@gmail.com"
             className="font-sans text-sm text-[#505153] transition-colors hover:text-[#05AAFF]"
           >
-            hello@jeffitepu.com
+            Jeffofficeadmin@gmail.com
           </a>
         </div>
       </div>

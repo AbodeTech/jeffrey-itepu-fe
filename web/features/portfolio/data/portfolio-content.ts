@@ -111,7 +111,7 @@ export const portfolioContent = {
   },
   contact: {
     text: "For collaborations, partnerships, or speaking engagements, get in touch.",
-    email: "hello@jefferyitepu.com",
+    email: "Jeffofficeadmin@gmail.com",
     button: "Send a Message",
   },
 } as const;

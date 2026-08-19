@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/register/success",
+      disallow: ["/register/success", "/invest", "/webinar", "/admin"],
     },
     sitemap: "https://jeffreyitepu.com/sitemap.xml",
   };

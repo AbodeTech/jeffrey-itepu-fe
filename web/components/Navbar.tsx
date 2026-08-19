@@ -9,9 +9,8 @@ import { Button } from "@/components/ui/Button";
 
 const links = [
   { label: "Home", href: "/" },
-  { label: "Invest", href: "/invest" },
   { label: "Mentorship", href: "/learn" },
-  { label: "Webinar", href: "/webinar" },
+  { label: "Real Estate University", href: "https://realestate-university.vercel.app/" },
   { label: "About", href: "/about" },
   { label: "Foundation", href: "/foundation" },
   { label: "Book Jeff", href: "/book-jeff" },
@@ -30,7 +29,12 @@ export function Navbar() {
     return () => window.removeEventListener("hashchange", syncHash);
   }, []);
 
+  const isExternal = (href: string) => href.startsWith("http");
+
   const isActive = (href: string) => {
+    if (isExternal(href)) {
+      return false;
+    }
     if (href === "/") {
       return pathname === "/" && hash !== "#contact";
     }
@@ -52,7 +56,13 @@ export function Navbar() {
               key={item.href}
               className={`text-[12px] transition ${isActive(item.href) ? "text-[#05AAFF]" : "text-[#5A5A5A] hover:text-[#05AAFF]"}`}
             >
-              <Link href={item.href} className="cursor-pointer">
+              <Link
+                href={item.href}
+                className="cursor-pointer"
+                {...(isExternal(item.href)
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
                 {item.label}
               </Link>
             </li>
@@ -111,6 +121,9 @@ export function Navbar() {
                           ? "bg-[#E8F2FC] text-[#05AAFF]"
                           : "text-[#294256] hover:text-[#05AAFF]"
                       }`}
+                      {...(isExternal(item.href)
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                     >
                       {item.label}
                     </Link>

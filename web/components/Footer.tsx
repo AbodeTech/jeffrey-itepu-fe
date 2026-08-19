@@ -81,12 +81,12 @@ export function Footer() {
                   </Link>
                 </li>
                 <li className="text-[16px] leading-[145%] text-[#505153]">
-                  <Link href="/invest" className="transition hover:text-[#05AAFF]">
-                    Invest With Jeff
-                  </Link>
-                </li>
-                <li className="text-[16px] leading-[145%] text-[#505153]">
-                  <Link href="/learn" className="transition hover:text-[#05AAFF]">
+                  <Link
+                    href="https://realestate-university.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-[#05AAFF]"
+                  >
                     Real Estate University
                   </Link>
                 </li>
@@ -98,11 +98,6 @@ export function Footer() {
                 Resources
               </p>
               <ul className="mt-6 space-y-5">
-                <li className="text-[16px] leading-[145%] text-[#505153]">
-                  <Link href="/webinar" className="transition hover:text-[#05AAFF]">
-                    Webinar
-                  </Link>
-                </li>
                 <li className="text-[16px] leading-[145%] text-[#505153]">
                   <Link href="/book-jeff" className="transition hover:text-[#05AAFF]">
                     Book Jeff

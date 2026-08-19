@@ -63,7 +63,14 @@ export function OwnershipNetworkTestimonialsSection() {
           </div>
 
           <div className="mt-14 flex flex-col items-center">
-            <Image src={activeItem.avatar} alt={activeItem.name} width={68} height={68} className="h-[68px] w-[68px]" />
+            <Image
+              src={activeItem.avatar}
+              alt={activeItem.name}
+              width={68}
+              height={68}
+              unoptimized
+              className="h-[68px] w-[68px] rounded-full object-cover"
+            />
             <p
               className="mt-4 text-center text-[35px] font-medium leading-[108%] tracking-[-0.03em] text-[#4B535D]"
               style={{ fontFamily: "var(--font-agrandir)" }}
@@ -86,7 +93,7 @@ export function OwnershipNetworkTestimonialsSection() {
             onClick={goPrev}
             className="inline-flex h-[44px] w-[44px] cursor-pointer items-center justify-center"
           >
-            <Image src="/assets/ownership-testimonial-arrow-left.svg" alt="" aria-hidden width={44} height={44} />
+            <Image src="/assets/ownership-testimonial-arrow-left.svg" alt="" aria-hidden width={44} height={44} unoptimized />
           </button>
 
           <div className="flex items-center gap-2">
@@ -109,7 +116,7 @@ export function OwnershipNetworkTestimonialsSection() {
             onClick={goNext}
             className="inline-flex h-[44px] w-[44px] cursor-pointer items-center justify-center"
           >
-            <Image src="/assets/ownership-testimonial-arrow-right.svg" alt="" aria-hidden width={44} height={44} />
+            <Image src="/assets/ownership-testimonial-arrow-right.svg" alt="" aria-hidden width={44} height={44} unoptimized />
           </button>
         </div>
       </div>
