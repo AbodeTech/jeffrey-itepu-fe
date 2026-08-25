@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { formatLagosDateTime } from "../format"
 import type { OverviewData } from "../queries"
-import { AdminVolumeStrip } from "./AdminVolumeStrip"
+import { AdminAnalyticsPanel } from "./AdminAnalyticsPanel"
 
 export function AdminOverview({ data }: { data: OverviewData }) {
   const healthy = data.sources.filter((source) => !source.error)
@@ -79,7 +79,7 @@ export function AdminOverview({ data }: { data: OverviewData }) {
         </p>
       ) : null}
 
-      <AdminVolumeStrip points={data.daily} label="Volume, last 30 days" />
+      <AdminAnalyticsPanel />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-2">
         {data.sources
