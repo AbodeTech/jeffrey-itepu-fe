@@ -8,14 +8,14 @@ const socialLinks = [
     icon: "/assets/linkedin.svg",
   },
   {
+    label: "Instagram",
+    href: "https://www.instagram.com/jeffreyehikioya",
+    icon: "/assets/instagram.svg",
+  },
+  {
     label: "Facebook",
     href: "https://www.facebook.com/share/19BVSA9Dbo/",
     icon: "/assets/facebook.svg",
-  },
-  {
-    label: "Threads",
-    href: "https://www.threads.com/@jeffreyehikioya",
-    icon: "/assets/twitter.svg",
   },
   {
     label: "YouTube",
@@ -32,7 +32,7 @@ export function Footer() {
           <div className="max-w-[460px]">
             <Image
               src="/assets/footer-profile.png"
-              alt="Jeffery Itepu"
+              alt="Jeffrey Itepu"
               width={44}
               height={44}
             />
@@ -40,8 +40,7 @@ export function Footer() {
               Jeffrey Itepu
             </p>
             <p className="mt-1 max-w-[350px] text-[30px] leading-[165%] text-[#4E545B]">
-              builds real estate communities that expand access to ownership
-              through technology, innovation, and trust.
+              builds people and systems that create sustainable wealth &amp; impact
             </p>
 
             <p className="mt-8 text-[20px] font-medium tracking-[0.12em] text-[#62666B] uppercase">

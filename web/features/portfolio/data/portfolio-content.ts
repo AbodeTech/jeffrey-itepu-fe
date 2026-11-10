@@ -11,10 +11,12 @@ export const portfolioContent = {
   },
   about: {
     paragraphs: [
-      "Jeffrey Itepu is an entrepreneur, business leader, and Co-Founder & CEO of Abode, a pioneering social community leveraging technology to expand access to property ownership across Africa.",
-      "With over a decade of experience in real estate, business development, and community building, he has led the growth of ventures focused on creating sustainable pathways to ownership and long-term wealth creation.",
-      "Beyond business, Jeffrey is a devoted Christian, husband to Yemisi Itepu, and father. His faith and family remain the foundation of his leadership philosophy, shaping the values, decisions, and long-term vision that guide his work.",
-      "For Jeffrey, democratizing real estate ownership is more than a business objective. It is a commitment to building systems that empower individuals, strengthen communities, and create opportunities that endure across generations.",
+      "Jeffrey Ehikioya Itepu is an entrepreneur, business leader, and Co-Founder & CEO of Abode, a pioneering social community leveraging technology to expand access to property ownership across Africa.",
+      "With over a decade of experience in real estate, business development, and community building, he has led the growth of ventures focused on creating sustainable pathways to ownership and long-term wealth creation like Pertinence Properties, Homify.ng amongst others.",
+      "Beyond business, Jeff is also a social impact leader with numerous community development projects focused on education, health and entrepreneurship across Nigeria. He has held leadership roles in NGOs such as Enactus and OneAfricanChild Foundation. He is currently the Board Chairman for Sheila Quest Foundation.",
+      "Jeffrey is a lifelong learner. In addition to his first degree in Economics, Jeffrey holds 2 Masters Degrees, one in Marketing from Pan-Atlantic University and a Masters in Business Administration (MBA) from Rome Business School, a Diploma and a Post-Graduate Diploma in Professional Marketing from The Chartered Institute of Marketing, United Kingdom. Jeff is currently running a 3rd Masters in Public Administration.",
+      "For Jeffrey, democratizing wealth is more than a business objective. It is a commitment to building systems that empower individuals, strengthen communities, and create opportunities that endure across generations.",
+      "Jeffrey is a devoted Christian, husband and father. His faith and family remain the foundation of his leadership philosophy, shaping the values, decisions, and long-term vision that guide his work. His core values are Integrity, humility, excellence, loyalty and partnership.",
     ],
     measuredProgress: {
       heading: "Building Through Consistency",
@@ -23,8 +25,8 @@ export const portfolioContent = {
     },
     stats: [
       { value: "10+", label: "Years Experience in Real Estate" },
-      { value: "3,000+", label: "Community Members Reached" },
-      { value: "4+", label: "Active Projects and Initiatives" },
+      { value: "25,000+", label: "Community Reached" },
+      { value: "47", label: "Active Projects" },
     ],
   },
   ownership: {

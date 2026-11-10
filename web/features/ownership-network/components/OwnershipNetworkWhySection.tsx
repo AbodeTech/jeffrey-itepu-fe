@@ -1,10 +1,4 @@
 import Image from "next/image";
-import { Caveat } from "next/font/google";
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["700"],
-});
 
 export function OwnershipNetworkWhySection() {
   return (
@@ -28,7 +22,7 @@ export function OwnershipNetworkWhySection() {
               style={{ fontFamily: "var(--font-agrandir)" }}
             >
               <span className="block">Why this network</span>
-              <span className={`${caveat.className} mt-1 block text-[#FF4F01]`}>exist</span>
+              <span className={`font-serif font-bold mt-1 block text-[#FF4F01]`}>exist</span>
             </h2>
 
             <div
@@ -51,7 +45,7 @@ export function OwnershipNetworkWhySection() {
           <div className="relative mx-auto w-full max-w-[560px] lg:mx-0 lg:justify-self-end">
             <Image
               src="/assets/founder.png"
-              alt="Founder Jeffery Itepu"
+              alt="Founder Jeffrey Itepu"
               width={559}
               height={658}
               className="relative z-10 mx-auto h-auto w-full max-w-[460px] lg:max-w-[500px]"

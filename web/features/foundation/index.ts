@@ -1,6 +1,7 @@
 export { FoundationPage } from "./components/FoundationPage";
 export {
+  foundationBuildingCapacity,
+  foundationCommunityImpact,
   foundationHero,
-  foundationHorizonLedger,
-  foundationStoryBands,
+  foundationLegacy,
 } from "./data/foundation-content";

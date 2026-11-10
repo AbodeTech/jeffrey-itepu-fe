@@ -76,10 +76,10 @@ export function WebinarHero() {
               className="flex flex-col items-start text-left font-[family-name:var(--font-display)]"
               variants={itemVariants}
             >
-              <span className="block text-left text-[17vw] font-bold leading-[0.85] tracking-tighter text-abode-black md:text-[13vw] lg:text-[8.5vw]">
+              <span className="block text-left text-[13vw] font-bold leading-[0.85] tracking-tighter text-abode-black lg:text-[8.5vw]">
                 REAL ESTATE
               </span>
-              <span className="block text-left text-[17vw] font-bold leading-[0.85] tracking-tighter text-primary md:text-[13vw] lg:text-[8.5vw]">
+              <span className="block text-left text-[13vw] font-bold leading-[0.85] tracking-tighter text-primary lg:text-[8.5vw]">
                 MASTERCLASS
               </span>
             </motion.h1>

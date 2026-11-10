@@ -1,19 +1,21 @@
 /**
- * THESIS: Foundation is a long-horizon ownership story told as paired fields —
- * photo and conviction — not a carousel of claims or a card grid of pillars.
- * OWN-WORLD: Cool Paper / Surface / Mist tonal bands; Agrandir display + Delight
- * body; Jeff Sky / Link Blue CTAs; full-bleed real photography, no sticker chrome.
- * STORY: Visitor feels generational ownership intent, then can contact or join.
- * FIRST VIEWPORT: Edge-to-edge hero photo, brand "Foundation" dominant, one line,
- * one CTA bottom-left on desktop / centered on mobile.
- * FORM: Tonal field pairings (seed 340d8735 · candidate 5); brief-pinned alternating
- * image/copy rhythm with surface-tone alternation.
+ * Foundation page copy — taken word for word from the "Jeff Website- Revamp" doc
+ * (Foundation Page, sections 01–04). Do not paraphrase.
+ * Image paths and CTA destinations are not part of the doc and can be swapped freely.
  */
+
+export type FoundationCta = {
+  label: string;
+  href: string;
+  /** opens in a new tab */
+  external?: boolean;
+};
 
 export type FoundationStoryBand = {
   id: string;
-  titleLines: [string, string];
-  body: string;
+  title: string;
+  paragraphs: string[];
+  cta: FoundationCta;
   imageSrc: string;
   imageAlt: string;
   /** image on the left (true) or right (false) at md+ */
@@ -21,69 +23,86 @@ export type FoundationStoryBand = {
   surface: "surface" | "cool-paper" | "mist";
 };
 
-/** Temporary copy — replace when Foundation content is ready. Do not treat as final claims. */
+/** Section 01 · Hero */
 export const foundationHero = {
-  brand: "Foundation",
-  support:
-    "A long-horizon commitment to ownership systems that outlast a single transaction.",
-  ctaLabel: "Start a Conversation",
-  ctaHref: "/contact",
-  imageSrc: "/images/landing/AUG_9626.png",
-  imageAlt: "Jeffrey Itepu in a setting that reflects community and place",
+  title: "Leadership That Creates Opportunity.",
+  paragraphs: [
+    "Jeffrey Itepu believes that meaningful progress begins when people have access to the knowledge, support, and opportunities they need to thrive.",
+    "From community initiatives to youth development and rehabilitation programmes, his work reflects a belief that leadership should create opportunities beyond business and build a lasting impact in people's lives.",
+  ],
+  cta: { label: "Explore His Impact", href: "#community-impact" },
+  imageSrc: "/images/landing/AUG_9388.png",
+  imageAlt: "A young woman celebrating with her cap in a green gown",
+  insetImages: [
+    { src: "/images/landing/AUG_9410.png", alt: "Three young women smiling for a photo together" },
+    { src: "/images/landing/AUG_9543.png", alt: "A crowd celebrating together" },
+  ],
 } as const;
 
-export const foundationStoryBands: FoundationStoryBand[] = [
-  {
-    id: "invest-future",
-    titleLines: ["Invest in Your Future.", "Build for Generations."],
-    body:
-      "Placeholder: this band will describe how Foundation frames ownership as patient capital — structure, trust, and access designed to compound across families and markets. Final copy pending.",
-    imageSrc: "/images/landing/AUG_9651.png",
-    imageAlt: "Scene representing long-term ownership and community",
-    imageFirst: true,
-    surface: "surface",
+/** Section 02 · Community Impact */
+export const foundationCommunityImpact = {
+  title: "Opportunity Begins With People.",
+  intro:
+    "Sustainable communities are built when people have the resources, guidance, and support to move forward. Through initiatives connected to his leadership and work with partner organisations, Jeffrey has been involved in efforts focused on menstrual health education, community development, and support for girls.",
+  initiatives: [
+    {
+      title: "Menstrual Health and Mentorship",
+      body: "Jeff partnered with GIDN on an initiative supporting menstrual hygiene awareness and mentorship for female students.",
+    },
+    {
+      title: "Community Development in Obafe",
+      body: "The Adopt a Community initiative focused on community engagement and local development.",
+    },
+    {
+      title: "Supporting Girls at the Special Correctional Centre",
+      body: "An initiative focused on supporting girls through engagement and opportunities for development.",
+    },
+  ],
+  cta: {
+    label: "Read About the Initiative",
+    href: "https://thesun.ng/menstrual-hygiene-gidn-partners-abode-to-mentor-female-students/",
+    external: true,
   },
-  {
-    id: "systems-endure",
-    titleLines: ["Systems That Endure.", "Communities That Grow."],
-    body:
-      "Placeholder: this band will explain how Abode-linked systems and disciplined participation turn opportunity into organised pathways — not one-off inspiration. Final copy pending.",
-    imageSrc: "/images/landing/AUG_9803.png",
-    imageAlt: "People and place connected through shared opportunity",
-    imageFirst: false,
-    surface: "cool-paper",
-  },
-  {
-    id: "africa-horizon",
-    titleLines: ["Africa's Horizon.", "Ownership With Intent."],
-    body:
-      "Placeholder: this band will situate Foundation in Africa’s ownership future — institutions, innovation, and trusted frameworks that unlock participation at scale. Final copy pending.",
-    imageSrc: "/images/landing/AUG_9543.png",
-    imageAlt: "Landscape and people that evoke Africa’s ownership horizon",
-    imageFirst: true,
-    surface: "mist",
-  },
-];
+  imageSrc: "/images/landing/AUG_6547.png",
+  imageAlt: "Young women laughing and taking a photo together",
+} as const;
 
-/** Temporary copy — replace when Foundation content is ready. */
-export const foundationHorizonLedger = {
-  titleLines: ["What We Hold.", "What We Pass On."] as [string, string],
-  body:
-    "Placeholder: this closing layout will name the Foundation's stewardship — the values, systems, and relationships meant to outlive any single deal. Final copy pending.",
-  ctaLabel: "Talk With the Team",
-  ctaHref: "/contact",
+/** Section 03 · Building Capacity */
+export const foundationBuildingCapacity: FoundationStoryBand = {
+  id: "building-capacity",
+  title: "Equip People to Shape Their Own Future.",
+  paragraphs: [
+    "Jeffrey’s approach to impact goes beyond providing immediate support. It includes helping people develop the skills, confidence, and capacity to build a different future.",
+    "As Global Programmes Manager at OneAfricanChild Foundation, he managed project execution across Nigeria, Kenya, Cameroon, and Benin. His work contributed to programmes focused on education, youth development, and community empowerment.",
+    "Through Enactus, he also worked on a prison rehabilitation initiative at Igbeba Prison, preparing inmates for reintegration into their communities through vocational skills, soft-skills training, and practical support.",
+  ],
+  cta: {
+    label: "Learn More About His Work",
+    href: "https://oneafricanchild.org/",
+    external: true,
+  },
+  imageSrc: "/images/landing/AUG_9330.png",
+  imageAlt: "Participants taking notes during a training session",
+  imageFirst: false,
+  surface: "cool-paper",
+};
+
+/** Section 04 · Legacy — the last paragraph is set apart as the closing statement */
+export const foundationLegacy = {
+  title: "What We Build Should Outlive Us.",
+  paragraphs: [
+    "For Jeffrey, leadership is not measured only by what a person achieves, but also by what others are able to achieve because of their contribution.",
+    "As board chairman of Sheila Quest Foundation, he supports an organisation committed to helping children access education, essential resources, mentorship, and opportunities to reach their potential.",
+    "His wider philosophy is simple: build people, strengthen systems, and create opportunities that can continue to make a difference long after a single project ends.",
+  ],
+  closing: [
+    "An empowered person can transform their world.",
+    "A community of empowered people can transform generations.",
+  ],
+  cta: { label: "Start a Conversation", href: "/contact" },
   photos: [
-    {
-      src: "/images/landing/AUG_9914.png",
-      alt: "Community and place in Jeffrey's ownership work",
-    },
-    {
-      src: "/images/landing/AUG_0178.png",
-      alt: "People gathered in a setting of trust and opportunity",
-    },
-    {
-      src: "/images/landing/AUG_9563.png",
-      alt: "A moment of leadership and long-term vision",
-    },
+    { src: "/images/landing/AUG_9538.png", alt: "A crowd of graduates celebrating together" },
+    { src: "/images/landing/AUG_8667.png", alt: "A young man adjusting his graduation cap" },
+    { src: "/images/landing/AUG_9402.png", alt: "Two people taking a selfie together" },
   ],
 } as const;

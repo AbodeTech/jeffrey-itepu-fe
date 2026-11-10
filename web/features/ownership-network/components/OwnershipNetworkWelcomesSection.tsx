@@ -1,9 +1,3 @@
-import { Caveat } from "next/font/google";
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["700"],
-});
 
 const welcomeItems = [
   "Licensed realtors",
@@ -18,7 +12,7 @@ export function OwnershipNetworkWelcomesSection() {
     <section className="w-full bg-white py-12 sm:py-14 md:py-18 lg:py-20">
       <div className="mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-10">
         <div className="border-b border-[#E7E4EC] pb-2">
-          <p className={`${caveat.className} text-[30px] leading-none text-[#FF4F01]`}>
+          <p className={`font-serif font-bold text-[30px] leading-none text-[#FF4F01]`}>
             This network welcomes:
           </p>
         </div>

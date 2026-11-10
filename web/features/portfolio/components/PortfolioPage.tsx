@@ -12,7 +12,7 @@ import { portfolioContent } from "@/features/portfolio/data/portfolio-content";
 
 export function PortfolioPage() {
   return (
-    <div className="min-w-0 overflow-x-hidden bg-[#F6F7FB]">
+    <div className="min-w-0 overflow-x-clip bg-[#F6F7FB]">
       <Navbar />
       <main>
         <HeroCarousel />
@@ -20,10 +20,10 @@ export function PortfolioPage() {
         <SectionWrapper id="about" className="bg-white py-0">
           <div className="mx-auto max-w-[1180px] px-0">
             <div className="border-y border-[#ECECEC] bg-white px-4 pt-8 sm:px-5 md:px-6 lg:px-6">
-              <div className="grid min-w-0 items-center gap-8 md:gap-10 lg:grid-cols-[1fr_minmax(0,430px)]">
-                <div className="min-w-0 space-y-6 text-left md:text-center lg:text-left">
-                  <p className="max-w-full text-[12px] leading-6 text-[#3D3D3D] sm:max-w-[520px] md:mx-auto md:text-[13px] lg:mx-0">
-                    Jeffrey Itepu is an entrepreneur, business leader, and Co-Founder & CEO of{" "}
+              <div className="grid min-w-0 items-start gap-8 md:gap-10 lg:grid-cols-[1fr_minmax(0,430px)]">
+                <div className="min-w-0 space-y-5 pb-8 text-left lg:self-start lg:pb-10 lg:pt-2">
+                  <p className="max-w-[62ch] text-[14px]! leading-[1.8]! text-[#3D3D3D] md:text-[15px]!">
+                    Jeffrey Ehikioya Itepu is an entrepreneur, business leader, and Co-Founder & CEO of{" "}
                     <Image
                       src="/assets/abode-logo.svg"
                       alt="Abode logo"
@@ -34,18 +34,17 @@ export function PortfolioPage() {
                     a pioneering social community leveraging technology to expand access to property
                     ownership across Africa.
                   </p>
-                  <p className="max-w-full text-[12px] leading-6 text-[#3D3D3D] sm:max-w-[520px] md:mx-auto md:text-[13px] lg:mx-0">
-                    {portfolioContent.about.paragraphs[1]}
-                  </p>
-                  <p className="max-w-full text-[12px] leading-6 text-[#3D3D3D] sm:max-w-[520px] md:mx-auto md:text-[13px] lg:mx-0">
-                    {portfolioContent.about.paragraphs[2]}
-                  </p>
-                  <p className="max-w-full text-[12px] leading-6 text-[#3D3D3D] sm:max-w-[520px] md:mx-auto md:text-[13px] lg:mx-0">
-                    {portfolioContent.about.paragraphs[3]}
-                  </p>
+                  {portfolioContent.about.paragraphs.slice(1).map((text) => (
+                    <p
+                      key={text}
+                      className="max-w-[62ch] text-[14px]! leading-[1.8]! text-[#3D3D3D] md:text-[15px]!"
+                    >
+                      {text}
+                    </p>
+                  ))}
                 </div>
 
-                <div className="relative mx-auto h-[260px] w-full max-w-[min(100%,500px)] min-w-0 sm:h-[300px] md:h-[320px] lg:h-[340px]">
+                <div className="relative mx-auto h-[260px] w-full max-w-[min(100%,500px)] min-w-0 sm:h-[300px] md:h-[320px] lg:sticky lg:top-28 lg:h-[340px]">
                   <div className="absolute right-0 top-0 h-[200px] w-[min(72%,250px)] overflow-hidden rounded-[8px] sm:h-[230px] sm:w-[250px] md:h-[240px] md:w-[270px] lg:h-[250px] lg:w-[290px]">
                     <Image
                       src="/about/about-main.png"
@@ -240,7 +239,6 @@ export function PortfolioPage() {
                 </p>
                 <Button className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#23A8EA] px-8 py-2.5 text-[11px] text-white hover:bg-[#1C97D5]">
                   Invest with Abode
-                  <Image src="/assets/arrow-up.svg" alt="" aria-hidden width={11} height={11} />
                 </Button>
               </div>
 

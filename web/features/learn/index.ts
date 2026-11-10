@@ -1,5 +1,4 @@
-export { LearnHeroSection } from "./components/LearnHeroSection";
-export { LearnFeaturedSection } from "./components/LearnFeaturedSection";
+export { MentorshipPage } from "./components/MentorshipPage";
 export { LearnFeaturedArticlesSection } from "./components/LearnFeaturedArticlesSection";
 export { LearnResourcesSection } from "./components/LearnResourcesSection";
 export { LearnFormatsSection } from "./components/LearnFormatsSection";

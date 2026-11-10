@@ -2,12 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Caveat } from "next/font/google";
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["700"],
-});
 
 const faqItems = [
   {
@@ -50,7 +44,7 @@ export function OwnershipNetworkFaqSection() {
               style={{ fontFamily: "var(--font-agrandir)" }}
             >
               <span className="block text-left! lg:whitespace-nowrap">Frequently Asked</span>
-              <span className={`${caveat.className} mt-1 block text-left! text-[#FF4F01]`}>Questions</span>
+              <span className={`font-serif font-bold mt-1 block text-left! text-[#FF4F01]`}>Questions</span>
             </h2>
 
             <p

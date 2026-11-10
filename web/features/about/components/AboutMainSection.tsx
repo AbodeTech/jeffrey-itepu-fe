@@ -52,7 +52,7 @@ export function AboutMainSection() {
           <div className="relative w-full max-w-[560px] bg-white">
             <Image
               src="/about/about-main-section.png"
-              alt="Jeffery Itepu presenting in a meeting with Abode branding on screen"
+              alt="Jeffrey Itepu presenting in a meeting with Abode branding on screen"
               width={620}
               height={775}
               unoptimized

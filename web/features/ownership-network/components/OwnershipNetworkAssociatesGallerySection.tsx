@@ -1,10 +1,4 @@
 import Image from "next/image";
-import { Caveat } from "next/font/google";
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["700"],
-});
 
 type GalleryItem = {
   src: string;
@@ -71,7 +65,7 @@ export function OwnershipNetworkAssociatesGallerySection() {
                   sizes="(max-width: 640px) 78vw, (max-width: 1024px) 44vw, 332px"
                 />
               </div>
-              <p className={`${caveat.className} mt-2 text-center text-[34px] leading-none text-[#233A4A]`}>
+              <p className={`font-serif font-bold mt-2 text-center text-[34px] leading-none text-[#233A4A]`}>
                 Associate in Qatar&apos;2025
               </p>
             </article>

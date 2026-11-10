@@ -1,16 +1,16 @@
+import { FoundationCommunityImpactSection } from "./FoundationCommunityImpactSection";
 import { FoundationHeroSection } from "./FoundationHeroSection";
-import { FoundationHorizonLedgerSection } from "./FoundationHorizonLedgerSection";
+import { FoundationLegacySection } from "./FoundationLegacySection";
 import { FoundationStoryBandSection } from "./FoundationStoryBandSection";
-import { foundationStoryBands } from "../data/foundation-content";
+import { foundationBuildingCapacity } from "../data/foundation-content";
 
 export function FoundationPage() {
   return (
-    <>
+    <div className="selection:bg-[#05AAFF]/25 selection:text-[#0F2433]">
       <FoundationHeroSection />
-      {foundationStoryBands.map((band) => (
-        <FoundationStoryBandSection key={band.id} band={band} />
-      ))}
-      <FoundationHorizonLedgerSection />
-    </>
+      <FoundationCommunityImpactSection />
+      <FoundationStoryBandSection band={foundationBuildingCapacity} />
+      <FoundationLegacySection />
+    </div>
   );
 }

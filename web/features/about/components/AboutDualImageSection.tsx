@@ -3,9 +3,9 @@ import Image from "next/image";
 const copy = {
   title: "Professional Journey",
   paragraphs: [
-    "I previously spearheaded the expansion of Pertinence Properties Limited and launched ventures such as Homify.ng and Realvest.ng, strengthening operational growth and participation within the property ecosystem.",
+    "I previously spearheaded the expansion of Pertinence Properties Limited and launched ventures such as Homify.ng and Realvest.ng, strengthening operational growth and participation within the property ecosystem. I started as a volunteer office assistant and rose to becoming CEO in 5 years",
     "In 2022, I co-founded Abode to lower barriers to ownership and organise real estate participation around structure, trust, and long-term value creation.",
-    "I hold a Master's Degree in Marketing from Pan-Atlantic University, professional certifications from the Chartered Institute of Marketing (CIM), UK, and a degree in Economics, bringing strategic discipline and market insight to my work across the real estate sector.",
+    "I hold a Master's Degree in Marketing from Pan-Atlantic University, an MBA from Rome Business School, professional certifications from the Chartered Institute of Marketing (CIM), UK, and a degree in Economics, bringing strategic discipline and market insight to my work across businesses.",
   ],
 } as const;
 

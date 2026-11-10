@@ -42,7 +42,7 @@ export default function ContactPage() {
               >
                 Get in touch
                 <br />
-                with Jeffery
+                with Jeffrey
               </h1>
               <p
                 className="mt-4 max-w-[640px] text-left! text-[18px] leading-[165%] text-[#505153] sm:mt-5 sm:text-[20px]"

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
 
 const partnerLogos = [
@@ -7,9 +6,16 @@ const partnerLogos = [
   { src: "/assets/cim.svg", alt: "CIM — The Chartered Institute of Marketing", width: 59, height: 40 },
   { src: "/assets/pau.svg", alt: "Pan-Atlantic University", width: 97, height: 40 },
   { src: "/assets/miva.svg", alt: "Miva Open University", width: 97, height: 40 },
+  {
+    src: "/assets/rome-business-school.webp",
+    alt: "Rome Business School",
+    width: 286,
+    height: 30,
+    className: "h-5 sm:h-5 md:h-6",
+  },
 ] as const;
 
-const ABOUT_TAGLINE = "Faith • Real Estate • Believer";
+const ABOUT_TAGLINE = "Believer • Real Estate • Entrepreneur";
 
 function TaglineMarquee() {
   const labelClass =
@@ -40,7 +46,7 @@ function AboutHeroCopy() {
           className="mt-4 text-left! text-[clamp(2.25rem,calc(6vw+0.75rem),10.25rem)] font-bold leading-[116%] tracking-[-0.03em] md:text-[clamp(2.85rem,calc(7vw+1rem),7.5rem)] lg:text-[clamp(3.25rem,calc(8vw+0.5rem),9rem)] xl:text-[164px]"
           style={{ fontFamily: "var(--font-agrandir)", textAlign: "left" }}
         >
-          <span className="block w-full text-left! text-[#0F2433]">Jeffery</span>
+          <span className="block w-full text-left! text-[#0F2433]">Jeffrey</span>
           <span
             className="mt-1 block w-full text-left!"
             style={{ color: "var(--color-primary, #0093FF)" }}
@@ -52,8 +58,7 @@ function AboutHeroCopy() {
           className="mt-5 max-w-[520px] text-left text-[15px] leading-[170%] text-[#5C646B] sm:text-[16px] md:text-[17px]"
           style={{ fontFamily: "var(--font-delight)" }}
         >
-          Founder, operator, and public voice on accessible property ownership and long-term wealth
-          creation.
+          Builds people and systems that create sustainable wealth &amp; impact
         </p>
       </div>
     </div>
@@ -75,24 +80,11 @@ function AboutHeroPartnerBar() {
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
-                className="h-8 w-auto opacity-90 sm:h-9 md:h-10"
+                className={`w-auto opacity-90 ${"className" in logo ? logo.className : "h-8 sm:h-9 md:h-10"}`}
               />
             </span>
           ))}
         </span>
-        <Link
-          href="#about-continue"
-          className="inline-flex shrink-0 cursor-pointer items-center justify-center transition-opacity hover:opacity-80 [&_img]:block"
-          aria-label="Scroll to learn more"
-        >
-          <Image
-            src="/assets/scroll.svg"
-            alt="Scroll to learn more"
-            width={200}
-            height={200}
-            className="h-[88px] w-[88px] sm:h-[96px] sm:w-[96px] md:h-[104px] md:w-[104px] lg:h-[112px] lg:w-[112px]"
-          />
-        </Link>
       </div>
     </div>
   );

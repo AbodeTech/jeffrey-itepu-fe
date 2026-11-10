@@ -60,23 +60,7 @@ export function ContactPageDetailsSection() {
                   className="text-[16px] font-medium uppercase tracking-[0.02em] text-[#84868C]"
                   style={{ fontFamily: "var(--font-delight)" }}
                 >
-                  Email
-                </p>
-                <a
-                  href="mailto:Jeffofficeadmin@gmail.com"
-                  className="mt-1 inline-block max-w-full break-all text-[18px] leading-[130%] text-[#505153] underline decoration-[#8D9199] underline-offset-4 sm:text-[19px] lg:text-[20px]"
-                  style={{ fontFamily: "var(--font-delight)" }}
-                >
-                  Jeffofficeadmin@gmail.com
-                </a>
-              </div>
-
-              <div>
-                <p
-                  className="text-[16px] font-medium uppercase tracking-[0.02em] text-[#84868C]"
-                  style={{ fontFamily: "var(--font-delight)" }}
-                >
-                  Speaking Engagement
+                  Email or Speaking Engagements
                 </p>
                 <a
                   href="mailto:Jeffofficeadmin@gmail.com"
@@ -92,13 +76,13 @@ export function ContactPageDetailsSection() {
               className="mt-10 text-[16px] font-medium uppercase tracking-[0.02em] text-[#84868C]"
               style={{ fontFamily: "var(--font-delight)" }}
             >
-              Note from Jeffery Itepu:
+              Note from Jeffrey Itepu:
             </p>
 
             <div className="relative mt-4 h-[200px] w-full max-w-[402px] overflow-hidden sm:h-[224px]">
               <Image
                 src="/assets/contact-note-jeffery.png"
-                alt="Jeffery smiling while opening a door"
+                alt="Jeffrey smiling while opening a door"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 420px"

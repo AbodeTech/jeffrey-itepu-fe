@@ -2,12 +2,10 @@ import Image from "next/image";
 import { SectionWrapper } from "@/components/SectionWrapper";
 
 const THEMES = [
-  "Ownership as Economic Infrastructure",
-  "Building Trust in African Real Estate Markets",
-  "Technology as the Engine of Accessible Ownership",
-  "Designing Communities That Create Generational Wealth",
-  "Leadership, Systems Thinking, and Institutional Growth",
-  "The Future of Property Ownership Across Africa",
+  "Money & Wealth Creation",
+  "Business Growth",
+  "Sales & Marketing",
+  "Discipline, Responsibility & Execution",
 ] as const;
 
 export function BookJeffSpeaksOnSection() {

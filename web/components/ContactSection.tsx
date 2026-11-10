@@ -68,7 +68,7 @@ export function ContactSection({
             <div className="relative mx-auto mt-4 h-[240px] w-[200px] self-end sm:h-[280px] sm:w-[240px] md:mt-6 md:h-[320px] md:w-[280px] lg:mx-0 lg:mt-0 lg:h-[400px] lg:w-[min(340px,32vw)] xl:h-[410px]">
               <Image
                 src="/assets/contact-jeffery.png"
-                alt="Jeffery portrait"
+                alt="Jeffrey portrait"
                 fill
                 className="object-contain object-bottom"
                 sizes="(max-width: 768px) 240px, 340px"

@@ -16,7 +16,7 @@ export function AboutHeroPortrait({ variant }: AboutHeroPortraitProps) {
         <div className="relative h-full min-h-[260px] w-full sm:min-h-[300px]">
           <Image
             src="/about/about-hero-portrait.png"
-            alt="Jeffery Itepu"
+            alt="Jeffrey Itepu"
             fill
             className="object-contain object-bottom"
             sizes="(max-width: 1023px) 92vw, 560px"

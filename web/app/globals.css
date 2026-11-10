@@ -90,6 +90,20 @@ h3 {
   text-align: center;
 }
 
+/* Delight ships a single weight; never fake a bold. Real bold comes from Agrandir. */
+body {
+  font-synthesis-weight: none;
+}
+
+h4,
+h5,
+h6,
+strong,
+b {
+  font-family: var(--font-agrandir);
+  font-weight: 700;
+}
+
 html {
   scroll-behavior: smooth;
 }

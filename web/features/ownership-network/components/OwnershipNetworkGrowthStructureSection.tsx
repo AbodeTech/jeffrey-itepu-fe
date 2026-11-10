@@ -1,10 +1,4 @@
 import Image from "next/image";
-import { Caveat } from "next/font/google";
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["700"],
-});
 
 export function OwnershipNetworkGrowthStructureSection() {
   return (
@@ -15,7 +9,7 @@ export function OwnershipNetworkGrowthStructureSection() {
           style={{ fontFamily: "var(--font-agrandir)" }}
         >
           <span className="block">Your Growth Begins With</span>
-          <span className={`${caveat.className} mt-1 block text-[50px] leading-none text-[#FF4F01] sm:text-[58px] lg:text-[64px]`}>
+          <span className={`font-serif font-bold mt-1 block text-[50px] leading-none text-[#FF4F01] sm:text-[58px] lg:text-[64px]`}>
             Structure
           </span>
         </h2>

@@ -66,7 +66,7 @@ export default function RootLayout({
         </noscript>
         {/* End Meta Pixel Code */}
       </head>
-      <body className="min-h-full flex min-w-0 flex-col overflow-x-hidden">{children}</body>
+      <body className="min-h-full flex min-w-0 flex-col overflow-x-clip">{children}</body>
     </html>
   );
 }

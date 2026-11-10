@@ -1,10 +1,4 @@
 import Image from "next/image";
-import { Caveat } from "next/font/google";
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["700"],
-});
 
 const memberExperienceItems = [
   {
@@ -54,7 +48,7 @@ export function OwnershipNetworkMembersExperienceSection() {
             style={{ fontFamily: "var(--font-agrandir)" }}
           >
             <span className="block">What Members</span>
-            <span className={`${caveat.className} mt-1 block text-[#FF4F01]`}>Experience</span>
+            <span className={`font-serif font-bold mt-1 block text-[#FF4F01]`}>Experience</span>
           </h2>
         </header>
 

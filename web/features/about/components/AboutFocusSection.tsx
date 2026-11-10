@@ -14,8 +14,8 @@ const focusItems: FocusItem[] = [
   },
   {
     iconSrc: "/assets/building.svg",
-    iconAlt: "Scaling real estate platforms through strategic growth",
-    title: "Scaling real estate platforms through strategic growth",
+    iconAlt: "Train & Invest in entrepreneurs for sustainable growth",
+    title: "Train & Invest in entrepreneurs for sustainable growth",
   },
   {
     iconSrc: "/assets/user-multiple.svg",
@@ -24,8 +24,8 @@ const focusItems: FocusItem[] = [
   },
   {
     iconSrc: "/assets/nano-technology.svg",
-    iconAlt: "Strengthening operational discipline within property systems",
-    title: "Strengthening operational discipline within property systems",
+    iconAlt: "Strengthening operational discipline through systems",
+    title: "Strengthening operational discipline through systems",
   },
 ];
 
@@ -74,9 +74,9 @@ export function AboutFocusSection() {
               className="text-left! text-[24px] font-bold leading-[1.15] text-[#233a4a] sm:text-[28px] md:text-[32px] lg:text-[34px] xl:text-[36px]"
               style={{ fontFamily: "var(--font-agrandir)", textAlign: "left" }}
             >
-              <span className="block">I build and lead real estate ventures</span>
-              <span className="block">centred on access, structure, and</span>
-              <span className="block">scalability.</span>
+              <span className="block">I build, lead &amp; support ventures</span>
+              <span className="block">centred on access, wealth creation,</span>
+              <span className="block">and scalability.</span>
             </h2>
 
             <p

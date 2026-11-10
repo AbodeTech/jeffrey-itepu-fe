@@ -42,7 +42,7 @@ export function InvestHeroSection() {
             >
               <span className="block">Invest with</span>
               <span className="block" style={{ color: "#0093FF" }}>
-                Jeffery
+                Jeffrey
               </span>
             </h1>
 

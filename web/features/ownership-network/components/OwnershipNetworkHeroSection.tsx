@@ -1,11 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Caveat } from "next/font/google";
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["700"],
-});
 
 export function OwnershipNetworkHeroSection() {
   return (
@@ -16,7 +10,7 @@ export function OwnershipNetworkHeroSection() {
           style={{ fontFamily: "var(--font-agrandir)" }}
         >
           <span className="block">Build Your Career</span>
-          <span className={`${caveat.className} mt-1 block text-[#FF4F01] sm:mt-2 md:mt-3`}>
+          <span className={`font-serif font-bold mt-1 block text-[#FF4F01] sm:mt-2 md:mt-3`}>
             in Real Estate
           </span>
         </h1>

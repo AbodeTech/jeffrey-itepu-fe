@@ -74,7 +74,7 @@ export function WebinarRegisterCTA() {
           Register now
         </Link>
 
-        <div className="mt-12 flex items-center justify-center">
+        <div className="-mb-6 mt-12 flex scale-[0.62] items-center justify-center min-[400px]:scale-[0.8] sm:mb-0 sm:scale-100">
           <div className="relative h-[180px] w-[280px] -rotate-6 rounded-2xl bg-abode-white p-5 shadow-2xl md:h-[220px] md:w-[350px]">
             <div className="flex items-center justify-between">
               <span className="font-[family-name:var(--font-display)] text-sm font-bold text-abode-black">
